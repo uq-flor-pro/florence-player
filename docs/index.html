@@ -1,0 +1,1497 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A simple to operate music player for people living with dementia designed to be build by families or Men's sheds">
+      
+      
+        <meta name="author" content="The Florence Project">
+      
+      
+      <link rel="icon" href="assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Florence Player Build Instructions - Florence Player</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#draft-florence-player" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://uq.edu.au" title="Florence Player" class="md-header__button md-logo" aria-label="Florence Player" data-md-component="logo">
+      
+  <img src="assets/florence_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Florence Player
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Florence Player Build Instructions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/uq-flor-pro/florence-player" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florence-player
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://uq.edu.au" title="Florence Player" class="md-nav__button md-logo" aria-label="Florence Player" data-md-component="logo">
+      
+  <img src="assets/florence_logo.png" alt="logo">
+
+    </a>
+    Florence Player
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/uq-flor-pro/florence-player" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florence-player
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Florence Player Build Instructions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Florence Player Build Instructions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspiration" class="md-nav__link">
+    Inspiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notice" class="md-nav__link">
+    Notice
+  </a>
+  
+    <nav class="md-nav" aria-label="Notice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warranty" class="md-nav__link">
+    Warranty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parts-list" class="md-nav__link">
+    Parts list
+  </a>
+  
+    <nav class="md-nav" aria-label="Parts list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    Case
+  </a>
+  
+    <nav class="md-nav" aria-label="Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laser-cutting" class="md-nav__link">
+    Laser-cutting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#our-software-changes" class="md-nav__link">
+    Our software changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Our software changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stations" class="md-nav__link">
+    Stations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    Build
+  </a>
+  
+    <nav class="md-nav" aria-label="Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemble-speaker-bonnet" class="md-nav__link">
+    Assemble Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberrypi-os" class="md-nav__link">
+    RaspberryPi OS
+  </a>
+  
+    <nav class="md-nav" aria-label="RaspberryPi OS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-if-your-raspberrypi-is-not-accessible-via-raspberrypilocal" class="md-nav__link">
+    (optional) If your raspberrypi is not  accessible via raspberrypi.local
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-os" class="md-nav__link">
+    Update the OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-speakers" class="md-nav__link">
+    Set up speakers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-speaker-bonnet" class="md-nav__link">
+    Install Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototyping" class="md-nav__link">
+    Prototyping
+  </a>
+  
+    <nav class="md-nav" aria-label="Prototyping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tin-the-components" class="md-nav__link">
+    Tin the components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wires" class="md-nav__link">
+    Wires
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-raspberrypi-os-and-install-the-player" class="md-nav__link">
+    Setup RaspberryPi OS and install the player
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup RaspberryPi OS and install the player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-the-configuration-page" class="md-nav__link">
+    Access the configuration page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stripboard-build" class="md-nav__link">
+    Stripboard build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction" class="md-nav__link">
+    Construction
+  </a>
+  
+    <nav class="md-nav" aria-label="Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mount-the-pi" class="md-nav__link">
+    Mount the pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-the-speakers-and-potentiometer" class="md-nav__link">
+    Mount the speakers and potentiometer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanding" class="md-nav__link">
+    Sanding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gluing-up" class="md-nav__link">
+    Gluing up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-ideas" class="md-nav__link">
+    Future ideas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistakes" class="md-nav__link">
+    Mistakes
+  </a>
+  
+    <nav class="md-nav" aria-label="Mistakes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#we-broke-a-tab-doing-a-test-assembly" class="md-nav__link">
+    We broke a tab doing a test assembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stealing-the-speaker-bonnets-i2s-pin-to-use-as-a-station-switch" class="md-nav__link">
+    Stealing the Speaker Bonnet's I2S pin to use as a station switch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pi-rc522-library-that-pummeluff-uses-needs-the-pinmode-set-to-board" class="md-nav__link">
+    The pi-rc522 library that Pummeluff uses needs the pinmode set to Board
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speaker-bonnet" class="md-nav__link">
+    Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireless-drops-out-under-load" class="md-nav__link">
+    Wireless drops out under load
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspiration" class="md-nav__link">
+    Inspiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notice" class="md-nav__link">
+    Notice
+  </a>
+  
+    <nav class="md-nav" aria-label="Notice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#warranty" class="md-nav__link">
+    Warranty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parts-list" class="md-nav__link">
+    Parts list
+  </a>
+  
+    <nav class="md-nav" aria-label="Parts list">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    Tools
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    Case
+  </a>
+  
+    <nav class="md-nav" aria-label="Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laser-cutting" class="md-nav__link">
+    Laser-cutting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#our-software-changes" class="md-nav__link">
+    Our software changes
+  </a>
+  
+    <nav class="md-nav" aria-label="Our software changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stations" class="md-nav__link">
+    Stations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    Build
+  </a>
+  
+    <nav class="md-nav" aria-label="Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemble-speaker-bonnet" class="md-nav__link">
+    Assemble Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberrypi-os" class="md-nav__link">
+    RaspberryPi OS
+  </a>
+  
+    <nav class="md-nav" aria-label="RaspberryPi OS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-if-your-raspberrypi-is-not-accessible-via-raspberrypilocal" class="md-nav__link">
+    (optional) If your raspberrypi is not  accessible via raspberrypi.local
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-os" class="md-nav__link">
+    Update the OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-speakers" class="md-nav__link">
+    Set up speakers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-speaker-bonnet" class="md-nav__link">
+    Install Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prototyping" class="md-nav__link">
+    Prototyping
+  </a>
+  
+    <nav class="md-nav" aria-label="Prototyping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tin-the-components" class="md-nav__link">
+    Tin the components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wires" class="md-nav__link">
+    Wires
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-raspberrypi-os-and-install-the-player" class="md-nav__link">
+    Setup RaspberryPi OS and install the player
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup RaspberryPi OS and install the player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-the-configuration-page" class="md-nav__link">
+    Access the configuration page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stripboard-build" class="md-nav__link">
+    Stripboard build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction" class="md-nav__link">
+    Construction
+  </a>
+  
+    <nav class="md-nav" aria-label="Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mount-the-pi" class="md-nav__link">
+    Mount the pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-the-speakers-and-potentiometer" class="md-nav__link">
+    Mount the speakers and potentiometer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanding" class="md-nav__link">
+    Sanding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gluing-up" class="md-nav__link">
+    Gluing up
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-ideas" class="md-nav__link">
+    Future ideas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mistakes" class="md-nav__link">
+    Mistakes
+  </a>
+  
+    <nav class="md-nav" aria-label="Mistakes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#we-broke-a-tab-doing-a-test-assembly" class="md-nav__link">
+    We broke a tab doing a test assembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stealing-the-speaker-bonnets-i2s-pin-to-use-as-a-station-switch" class="md-nav__link">
+    Stealing the Speaker Bonnet's I2S pin to use as a station switch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pi-rc522-library-that-pummeluff-uses-needs-the-pinmode-set-to-board" class="md-nav__link">
+    The pi-rc522 library that Pummeluff uses needs the pinmode set to Board
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speaker-bonnet" class="md-nav__link">
+    Speaker Bonnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireless-drops-out-under-load" class="md-nav__link">
+    Wireless drops out under load
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/uq-flor-pro/florence-player/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="draft-florence-player"><em>DRAFT</em> Florence Player</h1>
+<p><em>by The Florence Project</em></p>
+<figure>
+<p><img alt="" src="assets/final.jpg" /></p>
+<figcaption>The finished player TODO</figcaption>
+</figure>
+<h2 id="overview">Overview</h2>
+<p>The Florence Project aimed to construct plans for a music player that would be suitable for families and Men's Sheds to build and simple for people living with dementia to use.
+Importantly, the player would have a backend accessible by web-browser over the local network to easily assign playlists to station buttons thus allowing people living with dementia and care-partners to easily individualise the music.
+We also wanted the possibility to customise the form of the player in a familiar or recognisable way as this would differ from person to person.
+We built upon free and open source software projects to do this, prioritising free and open source hardware, and now release our modifications under a permissive licence so that others can build and build further upon this player.</p>
+<h2 id="motivation">Motivation</h2>
+<p><a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajag.12642">In a systematic review </a>of 4 studies on the effects of individualised music listening, Gariola et al concluded that the evidence, though limited, suggested positive impacts on agitation, anxiety, depression and emotion. The authors also noted that the outcomes were favourable compared to more resource-intensive interventions.</p>
+<h2 id="inspiration">Inspiration</h2>
+<p>While designing our radio we were inspired and influenced by a number of other projects.
+We loved, and incorporated, the personalisation options of the <a href="https://homelifetech.com.au/products/relish-radio">The Relish Radio</a>, the simplicity of the <a href="https://designability.org.uk/projects/products/simple-music-player/">Simple Music Player</a>, and the DIY nature of the <a href="https://hackaday.io/project/26096-dementia-friendly-music-player">Dementia-friendly music player</a>.</p>
+<h2 id="notice">Notice</h2>
+<p>Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #legal TODO</p>
+<h3 id="warranty">Warranty</h3>
+<p>TODO</p>
+<h2 id="parts-list">Parts list</h2>
+<ul>
+<li>1 x Raspberry Pi 3B or 3B+</li>
+<li>2 x <a href="https://www.adafruit.com/product/1314">Speaker 3" Diameter, 4 Ohm, 3 Watt</a></li>
+<li>1 x <a href="https://www.adafruit.com/product/3346">Adafruit I2S 3 Watt Stereo Speaker Bonnet for Raspberry Pi</a></li>
+<li>1 x <a href="https://www.adafruit.com/product/3393">Panel Mount 10K Dual Linear Potentiometer with On/Off Switch</a></li>
+<li>1 x <a href="https://core-electronics.com.au/black-metal-knob-14x24mm.html">Black Metal Knob for 0.25" shaft</a></li>
+<li>1 x <a href="https://www.adafruit.com/product/856">MCP3008 - 8-Channel 10-Bit ADC With SPI Interface</a></li>
+<li>1 x <a href="https://core-electronics.com.au/led-rgb-diffused-common-anode.html">RGB Diffused LED</a></li>
+<li>2 x 2000 Ohm resistor</li>
+<li>1 x <a href="https://www.altronics.com.au/p/p5430-oupiin-40-way-header-pin/">40 pin headers, pin</a> (we only need 14 but get extra as you will probably want spares<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>)</li>
+<li>2 x <a href="https://www.altronics.com.au/p/p5390-oupiin-40-pin-header-socket/">40 pin headers, socket</a></li>
+<li>1 x <a href="https://core-electronics.com.au/solderless-breadboard-300-tie-points-zy-60.html">Solderless breadboard for prototyping</a></li>
+<li>8 x <a href="https://core-electronics.com.au/machine-screw-m3-10mm-length-phillips-25-pack.html">Machine Screw M3, 10mm length Philips</a></li>
+<li>8 x <a href="https://core-electronics.com.au/machine-hex-nut-m3-25-pack.html">Machine Hex Nut M3</a></li>
+<li>1 x <a href="https://www.altronics.com.au/p/h8945-raspberry-pi-mounting-hardware-kit/">Raspberry Pi Mounting kit</a></li>
+<li>7 x <a href="https://www.altronics.com.au/p/s3255-spdt-momentary-solder-tail-push-button-microswitch/">S3255 SPDT Momentary Push Button Microswitch</a></li>
+<li>8 x <a href="https://magnet.com.au/products/ferrite-disc-magnet-9-5mm-x-3mm?_atid=yoAZS1xoT68WpLOeGjgUGcbRDviEzy">6mm diameter by 3mm height ferrite disk magnets</a></li>
+<li><a href="https://www.altronics.com.au/p/w0912a-black-3mm-heatshrink-1.2m-length/">Heat Shrink Tubing 1.2m length</a> 3mm pre-shrunk, 1.5mm shrunk</li>
+<li><a href="https://core-electronics.com.au/hook-up-stranded-wire-white-22-awg.html">Hook-up stranded wire (22 AWG)</a></li>
+<li><a href="https://core-electronics.com.au/hook-up-wire-black-22-awg.html">Hook-up standard solid wire (22 AWG)</a></li>
+<li>1 x <a href="https://www.altronics.com.au/p/h0714-75-x-100mm-0.1-inch-pitch-vero-board-pcb/">75 by 100mm 0.1" Pitch Vero Board PCB Stripboard</a></li>
+<li>Solder</li>
+</ul>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>Soldering Iron</li>
+<li>Drill and 2mm drill bit</li>
+<li>Screwdriver</li>
+</ul>
+<h2 id="design">Design</h2>
+<h3 id="hardware">Hardware</h3>
+<h4 id="case">Case</h4>
+<p>Our first version was a 3D printed case with a single affordance: a clicky on/off and volume switch.</p>
+<figure>
+<p><img alt="" src="assets/version_1.jpg" /></p>
+<figcaption>Our first version</figcaption>
+</figure>
+<p>In this version we wanted to include more options, especially the ability to skip tracks.
+However, since dementia is a progressive illness and over time someone with dementia might find it difficult to use certain features or find them confusing, we also wanted the case to be able to simplify over time.
+We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing they could be removed and this wood piece glued on top of that position.
+Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
+This means that the overall design remains the same but that any confusing elements can be removed over time.</p>
+<p>As some people living with dementia have reduced control of their hands, we chose switches that are easy to activate and spaced apart so that they can be individually pressed with a knuckle.</p>
+<h5 id="laser-cutting">Laser-cutting</h5>
+<p>We were working on this player during a lockdown and had no physical access to a laser cutter.
+Instead we opted to do our best to make a schematic and have it professionally laser cut.</p>
+<p>We used the <strong>boxes.py</strong> generator for an <a href="https://www.festi.info/boxes.py/ElectronicsBox?language=en">electronics box</a> with the following settings:</p>
+<figure>
+<p><img alt="The settings for the electronics box on boxes.py" src="assets/dimensions.png" width="600" /></p>
+<figcaption>The settings for the electronics box on boxes.py</figcaption>
+</figure>
+<p>Your settings will depend on the thickness of your wood.<sup id="fnref:11"><a class="footnote-ref" href="#fn:11">8</a></sup></p>
+<p>We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts for the components and the etching.
+Our final versions can be found in the schematics directory of the repository.</p>
+<h3 id="software">Software</h3>
+<p>For this project we use <a href="https://mopidy.com/">Mopidy</a> and based our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
+Mopidy is an extensible music server written in Python and Mopidy Pummeluff is an extension for playing music by reading identification data from RFID tags.
+We chose Mopidy Pummeluff as it had a number of features:</p>
+<ul>
+<li>the ability to read uids from RFID tags</li>
+<li>a web interface to add RFID tag uids to a registry</li>
+<li>uses threading and could be modified to incorporate our changes</li>
+<li>was licensed under an appropriate licence</li>
+</ul>
+<p>One change we wanted to make was to use a 'clicky' on/off potentiometer instead of a rotary encoder for the volume as the on/off switch is a familiar affordance and a potentiometer provides accurate visual and tactile feedback (though the mark on the knob we have used is quite small and potentially hard to read).
+To make this change meant using an Analog to Digital Converter (ADC) to connect to the potentiometer as the GPIO pins on the pi are digital.
+The ADC we chose connects via Serial Peripheral Interface (SPI) as does the RFID reader.<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">7</a></sup>
+We tried to get the RFID and ADC both working simultaneously with one using hardware SPI and the other software SPI. Unfortunately we couldn't and decided to focus on getting the base player working and try again later to incorporate RFID reading.</p>
+<h4 id="our-software-changes">Our software changes</h4>
+<h5 id="registry">Registry</h5>
+<p>Rather than create a new registry format for stations we decided it would be better to modify the RFID tag format to allow for the stations. To keep RFID tags a possibility later we modified the registry slightly so that a tag would by default be considered an RFID tag, but if this argument was false it would be handled as a station instead. This meant the Pummeluff web page and tornado web backend could also be modified rather simply.</p>
+<h5 id="web-interface">Web interface</h5>
+<p>To change the web interface we added a new form for setting stations. This communicates with a modified <code>web.py</code> backend to handle setting stations and aliases. Aliases are convenient names for naming the playlists associated with a station. </p>
+<figure>
+<p><img alt="" src="assets/add_station_view.png" width="450" />
+    <figcaption>The form for assigning a tracklist to station 1</figcaption></p>
+</figure>
+<h5 id="stations">Stations</h5>
+<p>We added a separate module containing a Station class and four subclasses representing the four station buttons.</p>
+<h2 id="build">Build</h2>
+<h3 id="assemble-speaker-bonnet">Assemble Speaker Bonnet</h3>
+<p>We need to assemble the speaker bonnet <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/assembly">as per Adafruit's instructions</a>. This involves soldering the headers and speaker terminal blocks.</p>
+<h3 id="raspberrypi-os">RaspberryPi OS</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Practice good security by keeping your Pi operating system up-to-date by regularly checking for updates, change the default password, and be careful running scripts and commands from the internet.</p>
+</div>
+<p>We need to install the latest version of the Lite RaspberryPi OS (previously known as Raspbian).
+<a href="https://randomnerdtutorials.com/installing-raspbian-lite-enabling-and-connecting-with-ssh/">This tutorial from Random Nerd Tutorials</a> explains the steps involved to flash the image to a microSD card with wireless credentials and SSH enabled.
+Make sure to change the default password in step 2.9.</p>
+<p>Power on the pi and check we can see connect to the Pi without knowing its ip by running the following command to SSH in:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh pi@raspberrypi.local 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># or, if ssh tries to use ssh keys:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ssh pi@raspberrypi.local -o IdentitiesOnly=yes</span>
+</code></pre></div>
+and if you get the result <code>ssh: Could not resolve hostname raspberrypi.local: Name or service not known</code> then try the following section. If you see a login prompt then log into the pi using the credentials you set and then skip the next section.</p>
+<h4 id="optional-if-your-raspberrypi-is-not-accessible-via-raspberrypilocal">(optional) If your raspberrypi is not  accessible via raspberrypi.local</h4>
+<p>In this case we need the ip of our device to log in via SSH.
+There are a few ways to get this.
+One way is to login to your router and look for the raspberry pi's connection.
+Otherwise <a href="https://raspberrypi.stackexchange.com/questions/13936/find-raspberry-pi-address-on-local-network">this page</a> has a number of alternatives.</p>
+<p>One you have the ip we can ssh into the pi.
+From there install avahi-daemon as show in <a href="https://www.howtogeek.com/167190/how-and-why-to-assign-the-.local-domain-to-your-raspberry-pi/">this article</a>.
+From now on we can access our Pi via this address rather than the ip.
+This will be useful to access the station management backend from different devices<sup id="fnref:15"><a class="footnote-ref" href="#fn:15">11</a></sup>.</p>
+<h3 id="update-the-os">Update the OS</h3>
+<p>First we check for updates and install any
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt update
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo apt upgrade
+</code></pre></div></p>
+<h3 id="set-up-speakers">Set up speakers</h3>
+<p>In this step we wire up the speakers and connect them to the terminal blocks of the bonnet. The first half of <a href="assets/https://www.youtube.com/watch?v=8UXloSxQlEA">this video</a> shows the method we used. We can ignore the second half of the video as we are not attaching the speakers to a breadboard but to the Speaker Bonnet's terminal blocks. The method we use is:</p>
+<ol>
+<li>Cut the stranded wire to length #todo check length</li>
+<li>Strip all the ends of the wires</li>
+<li>Twist and tin each end</li>
+<li>Solder one end to the speakers as in the video</li>
+<li>Attach other end to speaker jumpers</li>
+</ol>
+<h3 id="install-speaker-bonnet">Install Speaker Bonnet</h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do this before install Mopidy or running the install script for the player. If done after this we had issues with sound.</p>
+</div>
+<p>The first thing to do after updating the RaspberryPi OS needs to be installing the Speaker Bonnet.
+In our experience this needs to be done early on or we might have problems later.
+The instructions are <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/raspberry-pi-usage">on the Adafruit website</a>.
+If you see a big red warning on that page regarding the Full version don't panic, we are using the Lite version of the RaspberryPi OS so this doesn't apply to us.</p>
+<p>The installer will offer to test the speakers, which hopefully will be successful. If not check the soldering of the bonnet, check the soldering of the speaker, or reinstall the bonnet software.</p>
+<h3 id="prototyping">Prototyping</h3>
+<figure>
+<p><img alt="" src="assets/player_breadboard.png" width="450" /></p>
+<figcaption>The breadboard schematic</figcaption>
+</figure>
+<p>Next we build the player on a breadboard and check everything works.</p>
+<h4 id="tin-the-components">Tin the components</h4>
+<p>We first tin the switches, the LED pins, and the potentiometer (including on/off switch) to make them easier to solder.
+To tin the switches we heat up the the normally open (NO) tabs of the switches and touch the solder to the heated component to flow some solder on, then do the same for the common (C) tab.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">5</a></sup>
+To tin the LED, the potentiometer, and the on/off switch we heat the wire and touch the solder to the heated wires to flow solder on.
+The potentiometer pins we use are the first three (shown in red in the next diagram) and the on/off switch (shown in blue) are the pair of pins at the end.</p>
+<figure>
+<p><img alt="" src="assets/potentiometer_pins.png" width="450" /></p>
+<figcaption>The red pins are the potentiometer we use and the blue for the on/off switch</figcaption>
+</figure>
+<h4 id="wires">Wires</h4>
+<p>We use multi-stranded wire for most of the wire so that flexing it doesn't break the only thread. For mounting to the breadboard and later inserting into the header sockets it will be easier to have a single wire ends. We do this for one end of the following wires:</p>
+<ul>
+<li>7 pairs for the switch leads</li>
+<li>1 pair for the LED </li>
+<li>5 wires total for the potentiometer and on/off switch combination</li>
+</ul>
+<p>The other end gets connected to the component.</p>
+<figure>
+<p><img alt="" src="assets/one_down.jpg" /></p>
+<figcaption>One switch down, six to go</figcaption>
+</figure>
+<p>We add heatshrink to each to help prevent against short-circuits occuring. First cut the heatshrink, slide it over then solder and lastly use a lighter or heat gun to shrink the heatshrink. <a href="https://youtu.be/6rmErwU5E-k?t=439">This video</a> demostrates the whole process.</p>
+<h3 id="setup-raspberrypi-os-and-install-the-player">Setup RaspberryPi OS and install the player</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful running commands from the internet</p>
+</div>
+<p><a href="https://docs.mopidy.com/en/latest/installation/">Install Mopidy via their instructions</a></p>
+<p>Install pip for Python package management, and the requirements for the Spotify extension
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git python3-pip libSpotify12 python3-Spotify
+</code></pre></div>
+Install the Iris Mopidy web front end and the Spotify extension.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo pip install mopidy-iris Mopidy-Spotify
+</code></pre></div></p>
+<p>Enable SPI in rasp-config <a href="assets/https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/">using this link if needed.</a></p>
+<p>Install the requirements for our player code
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo pip install spidev
+</code></pre></div></p>
+<p>Give Mopidy access to SPI and GPIO groups
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo usermod -a -G spi,gpio mopidy
+</code></pre></div></p>
+<!-- handled by /boot/config.txt
+Allow Mopidy to shutdown the Pi without requiring a password
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span> <span class="s2">&quot;mopidy ALL = NOPASSWD: /sbin/shutdown&quot;</span> &gt; /etc/sudoers.d/mopidy
+</code></pre></div>
+-->
+<p>Edit the Mopidy configuration and set Spotify credentials, local music location, etc. TODO
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo nano /etc/mopidy/mopidy.conf
+</code></pre></div></p>
+<p>Install our modified player code.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo <span class="nb">cd</span> /usr/src
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo git clone https://github.com/florenceproject/florenceplayer.git
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span> florenceplayer
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sudo python setup.py install
+</code></pre></div></p>
+<p>Enable Mopidy to run at boot:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo systemctl <span class="nb">enable</span> mopidy.service 
+</code></pre></div>
+Start the Mopidy service now:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo systemctl start mopidy.service
+</code></pre></div></p>
+<p>Edit the boot file:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo vim /boot/config.txt
+</code></pre></div></p>
+<p>And add the following at the bottom to set the shutdown pin<sup id="fnref:19"><a class="footnote-ref" href="#fn:19">15</a></sup>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>[shutdown]
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>dtoverlay=gpio-shutdown,active_low=0
+</code></pre></div></p>
+<p>And save the file and reboot the pi
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo reboot
+</code></pre></div></p>
+<h4 id="access-the-configuration-page">Access the configuration page</h4>
+<p>The web-server on the player is accessible via port 6680. 
+Navigating to <a href="http://raspberrypi.local:6680">http://raspberrypi.local:6680</a> with a browser on the same network will hopefully show the Mopidy page with links to Iris and Florence.
+From here we can create playlists with Iris, and assign playlists to stations with Florence.</p>
+<h3 id="stripboard-build">Stripboard build</h3>
+<p>Once we've confirmed everything works with a breadboard it's time to construct on the stripboard.</p>
+<figure>
+<p><img alt="" src="assets/player_stripboard.png" width="550" /></p>
+<figcaption>The stripboard schematic</figcaption>
+</figure>
+<ul>
+<li>Break the header pins into two 7 length pieces</li>
+<li>Quickly but carefully solder the switch wires to the header pins making sure the order on both are the same. We messed up twice but was happy with the third result. If this proves difficult skip the headers and mount the wire into the sockets directly.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">2</a></sup></li>
+</ul>
+<figure>
+<p><img alt="" src="assets/work_quickly.jpg" width="550" /></p>
+<figcaption>The header pins are fragile: too much heat will melt the casing</figcaption>
+</figure>
+<figure>
+<p><img alt="" src="assets/headers.jpg" width="550" /></p>
+<figcaption>Not perfect but working. Next step is to shrink the heatshrink. We probably should have cut the single strand wire off and connected the headers to the stranded wire and they might have soldered better.</figcaption>
+</figure>
+<ul>
+<li>Remove the IC from the breadboard using an IC extractor</li>
+<li>Cut header sockets into 8, 8, 7, 7, 7, 6, 4, 1, 1 lengths by counting out the number of sockets needed then removing the next pin with pliers, then cut the header sockets at the extracted pin<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></li>
+<li>Break the 15 highlighted strips on the stripboad: the 7 length section for the station switches and 8 length section for the MCP3008. These are the gaps in the channels in the following schematic. We did this by carefully cutting with a craft knife but there are other methods<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">9</a></sup></li>
+</ul>
+<figure>
+<p><img alt="" src="assets/player_stripboard_no_components_hl.png" width="450" /></p>
+<figcaption>The 15 strips to cut</figcaption>
+</figure>
+<ul>
+<li>Solder the components one by one</li>
+<li>Cut wire to length and solder it</li>
+</ul>
+<figure>
+<p><img alt="Top view of the stripboard with the MCP3008 mounted" src="assets/stripboard_top.jpg" title="Top view of the stripboard with the MCP3008 mounted" width="450" /></p>
+<figcaption>The soldered board. Note, this board uses a 2 socket header — not a single socket — on the top right but is otherwise based on the schematic.</figcaption>
+</figure>
+<figure>
+<p><img alt="" src="assets/stripboard_reverse.jpg" title="Image not found: ./stripboard_reverse.jpg" width="450" /></p>
+<figcaption>Rear view (mirrored left-right)</figcaption>
+</figure>
+<ul>
+<li>Check the connections<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+</ul>
+<h3 id="construction">Construction</h3>
+<h4 id="mount-the-pi">Mount the pi</h4>
+<p>The mounting holes on the Pi 3B/3B+ form a rectangle 58mm wide by 49mm high<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">10</a></sup>.
+Mount the pi so the top is just below the cutouts that will hold the triangles for the shelves.
+Account for the extra room taken up by the Speaker Bonnet and make sure to account for the extra distance taken up by the power cable at the bottom.<sup id="fnref:17"><a class="footnote-ref" href="#fn:17">13</a></sup></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Check what cables need to be connected before assembling. In our case the usb micro cable can't be connected after assembling.</p>
+</div>
+<p>Drill holes for the standoffs, then screw the standoffs in and mount the pi. </p>
+<figure>
+<p><img alt="" src="assets/mount_bottom_cable.jpg" /></p>
+<figcaption>Mounting the pi to the backplate</figcaption>
+</figure>
+<h4 id="mount-the-speakers-and-potentiometer">Mount the speakers and potentiometer</h4>
+<p>Screw the speakers in using four M3 screws and nuts.
+Mount the potentiometer in the front case and tighten with its nut.</p>
+<figure>
+<p><img alt="" src="assets/fit_pot.jpg" /></p>
+<figcaption>The potentiometer in the casing</figcaption>
+</figure>
+<h4 id="sanding">Sanding</h4>
+<p>Sand the triangle tabs so that they fit nicely into the holes.
+Be gentle with them while they fit tightly as they might snap off as we found out first hand :(.</p>
+<figure>
+<p><img alt="" src="assets/broken_tab.jpg" /></p>
+<figcaption>A broken tab</figcaption>
+</figure>
+<p>We had cut some extra lengths in case we needed to reinforce any corners and because there was extra room in the timber sheet we had lasercut.
+These pieces came in handy and we used one here as a cross-piece.</p>
+<figure>
+<p><img alt="" src="assets/side_crosspiece.jpg" width="400" /></p>
+<figcaption>Improvised cross-piece</figcaption>
+</figure>
+<p>We also found we needed to sand in between the tabs of the sides pieces to get a good fit<sup id="fnref:18"><a class="footnote-ref" href="#fn:18">14</a></sup>.
+We wrapped a 13cm by 4mm long piece in 400 grit sandpaper to form a nice tool for this.</p>
+<h4 id="gluing-up">Gluing up</h4>
+<p>When it was time to glue we used the method in <a href="https://www.youtube.com/watch?v=oSs3zhVkcTc">this video</a>.</p>
+<h2 id="future-ideas">Future ideas</h2>
+<p>In the wild it A button to update the radio at a convenient time.
+Made the led stay on while the pi is on.</p>
+<h2 id="mistakes">Mistakes</h2>
+<p>Here's a few of the mistakes we made in building the player.</p>
+<h3 id="we-broke-a-tab-doing-a-test-assembly">We broke a tab doing a test assembly</h3>
+<p>We're still annoyed about that (see above).</p>
+<h3 id="stealing-the-speaker-bonnets-i2s-pin-to-use-as-a-station-switch">Stealing the Speaker Bonnet's I2S pin to use as a station switch</h3>
+<p>We were wondering why audio was working without the extension but not when it was running.
+The gstreamer output worked but the player didn't.
+It turned out that one of the station pins had been set up to use one of the I2S pins that the Pi uses to communicate with the Speaker Bonnet.
+The Speaker Bonnet exposes this pin even though it's in use by the bonnet.
+Changing this pin to a free pin restored audio.</p>
+<h3 id="the-pi-rc522-library-that-pummeluff-uses-needs-the-pinmode-set-to-board">The pi-rc522 library that Pummeluff uses needs the pinmode set to Board</h3>
+<p><a href="https://pinout.xyz/">The pins</a> on a raspberry pi can be referenced numerically in multiple ways.
+This is known as pinmode.
+To use the RFID reading capabilities of Pummeluff at the same time it is necessary to change the pinmode to Board from BCM in the gpio_handler and mcp_watcher files otherwise conflicting modes will cause an error.<sup id="fnref:16"><a class="footnote-ref" href="#fn:16">12</a></sup>
+This stumped us for a while.
+Since we aren't using this the RFID reader at the moment, we have commented out the sections where it this code gets called and used BCM mode.</p>
+<h3 id="_1"></h3>
+<h2 id="notes">Notes</h2>
+<h3 id="speaker-bonnet">Speaker Bonnet</h3>
+<p>We had some issues getting the speaker bonnet set up originally.
+Adafruit's debugging suggestions generally involve reflashing the OS and reinstalling the speaker bonnet code and checking soldering.
+Both can be frustrating, but the first is one of the reasons we install the speaker bonnet so early in the process now.
+This way if we need to reinstall there's less to do.</p>
+<h3 id="wireless-drops-out-under-load">Wireless drops out under load</h3>
+<p>When connected using wifi and performing updates or when transferring files using <code>scp</code> we often found the network connection would drop out for a few minutes.
+<a href="https://forums.raspberrypi.com/viewtopic.php?p=1670096&amp;hilit=transfer+disconnects#p1670096">This link</a> seems to refer to the issue.
+Throttling the connection using wondershaper didn't seem to help.
+This only happened over wifi.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>In building our prototype we had to do this a few times and still didn't get it perfect. However we think it's worthwhile doing as it makes the final version much cleaner and easier to work with.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>We work quickly because the plastic frame on the headers will easily melt if we linger on a pin too long. To solder, we used this method <a href="https://www.youtube.com/watch?v=IkjMK26ROcM">https://www.youtube.com/watch?v=IkjMK26ROcM</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>We checked each joint with a multimeter and also tested portions of of the board we know should be connected. There should be a 0 Ohm potential between any two connected points, and a large resistance between unconnected points.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Wirecutters work well.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p><a href="https://www.youtube.com/watch?v=pf_Mngbx32w">https://www.youtube.com/watch?v=pf_Mngbx32w</a> is a good example of this soldering a similiar component to the switches we used.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p><a href="https://www.festi.info/boxes.py/ElectronicsBox?language=en">https://www.festi.info/boxes.py/ElectronicsBox?language=en</a>&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:9">
+<p>We originally chose an ADC that used SPI not I2C because we wanted to keep GPIO 3 free. This is because pin 3 can be used to start up the pi from the shutdown state by connecting it to ground. We also want to shut the pi down using a GPIO signal but didn't realise until later that the pi can be shutdown by other GPIO pins by specifying them in /boot/config.txt. See <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README">this file</a> in the section named gpio-shutdown for details. Since it is possible to specify this other pin for shutdown, using a I2C ADC might work well as it would free up the hardware SPI for the RFID reader.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:11">
+<p>If you use this generator with a thick piece of wood and the tabs on the triangles disappear you might need to increase the <em>triangle</em> measurement to compensate.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:12">
+<p><a href="https://electronics.stackexchange.com/questions/94659/how-to-cut-the-tracks-of-a-stripboard">https://electronics.stackexchange.com/questions/94659/how-to-cut-the-tracks-of-a-stripboard</a>&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:13">
+<p><a href="https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.pdf">https://datasheets.raspberrypi.com/rpi3/raspberry-pi-3-b-plus-mechanical-drawing.pdf</a>&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:15">
+<p>Alternatively we can set up a static ip on the player but this is not perfect as another device might take the player's lease, perhaps while the player is off.&#160;<a class="footnote-backref" href="#fnref:15" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:16">
+<p><a href="https://github.com/adafruit/Adafruit_Python_Extended_Bus/issues/2">See this bug report for more</a>&#160;<a class="footnote-backref" href="#fnref:16" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:17">
+<p>We placed our pi too low and needed to use a right-angle usb cord so as to fit in the gap between the bottom of the pi and the bottom plate.&#160;<a class="footnote-backref" href="#fnref:17" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+<li id="fn:18">
+<p>There is a burn variable in festi-boxes that can help with the fit, but will require a few test cuts on your laser-cutter.&#160;<a class="footnote-backref" href="#fnref:18" title="Jump back to footnote 14 in the text">&#8617;</a></p>
+</li>
+<li id="fn:19">
+<p><a href="https://gist.github.com/lbussy/9e81cbcc617952f1250e353bd42e7775">Explanation here</a>&#160;<a class="footnote-backref" href="#fnref:19" title="Jump back to footnote 15 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+    
+  </body>
+</html>
