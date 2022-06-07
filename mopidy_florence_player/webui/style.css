@@ -1,0 +1,218 @@
+/*
+ * Main Elements
+ */
+
+*,
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    margin : 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #fff;
+    color           : #111;
+    font-family     : sans-serif;
+    font-size       : 14px;
+    min-height      : 100vh;
+    margin: auto;
+}
+
+/*
+ * Headings
+ */
+
+h1,
+h2
+{
+    margin: 0 0 10px 0;
+}
+
+/*
+ * Structural page elements
+ */
+
+main
+{
+    display: flex;
+}
+
+header
+{
+    padding: 20px 20px 10px 20px;
+}
+
+main > div
+{
+    padding: 20px;
+}
+
+/*
+ * Register Form
+ */
+
+#register-form
+{
+    background-color: #333;
+    padding         : 20px;
+    width           : 250px;
+}
+
+#register-form label
+{
+    display: block;
+    margin : 10px 0 5px 0;
+}
+
+register-form label:first-child
+{
+    margin-top: 0;
+}
+
+register-form input,
+select,
+button
+{
+    background-color: #222;
+    border          : 0;
+    border-color    : #333;
+    border-style    : solid;
+    border-width    : 0 0 2px 0;
+    color           : #eee;
+    outline         : none;
+    padding         : 10px;
+    width           : 100%;
+}
+
+select
+{
+    height: 35px;
+}
+
+input::placeholder
+{
+    color: #666;
+}
+
+input:focus
+{
+    border-bottom-color: #8ff;
+}
+
+button
+{
+    color      : #eee;
+    cursor     : pointer;
+    font-weight: bold;
+    margin-top : 10px;
+}
+
+button#register-button
+{
+    background-color: #4a4;
+}
+
+button#unregister-button
+{
+    background-color: #a20;
+}
+
+#read-rfid-tag
+{
+    color          : #8ff;
+    font-size      : 11px;
+    text-decoration: none;
+}
+
+#read-rfid-tag.reading {
+    animation: blink 0.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+}
+
+@keyframes blink { to { opacity: 0.25; } }
+
+/*
+ * Registered Tags
+ */
+
+div.tag
+{
+    background-color: #eee;
+    box-shadow      : 1px 1px 5px #000;
+    color           : #222;
+    cursor          : pointer;
+    display         : inline-block;
+    line-height     : 20px;
+    margin          : 0 20px 20px 0;
+    padding         : 10px;
+    width           : 400px;
+}
+
+div.tag span.uid,
+div.tag span.action-class,
+div.tag span.parameter
+{
+    font-family: Courier New, monospace;
+}
+
+div.tag span.action-class
+{
+    background-color: #888;
+    border-radius   : 10px;
+    color           : #eee;
+    display         : inline-block;
+    font-size       : 11px;
+    line-height     : 11px;
+    margin-left     : 5px;
+    padding         : 3px 5px;
+}
+
+div.tag span.alias,
+div.tag span.parameter
+{
+    display: block;
+}
+
+#register-stations-form button {
+    background-color: #090;
+}
+
+.station {
+    border: 1px solid #111;
+    padding: 10px;
+    margin: 10px;
+}
+
+#register-stations-form input {
+    background-color: #fff;
+    border          : 0;
+    border-color    : #333;
+    border-style    : solid;
+    border-width    : 0 0 2px 0;
+    color           : #111;
+    outline         : none;
+    padding         : 10px;
+    margin          : 5px;
+    width           : 100%;
+}
+
+.highlight {
+    color: #00f;
+}
+
+.success {
+    border: 2px solid green;
+    padding: 10px;
+}
+
+.error {
+    border: 2px solid red;
+    padding: 10px;
+}

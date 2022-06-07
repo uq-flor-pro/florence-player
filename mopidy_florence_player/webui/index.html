@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Florence Player Station Management</title>
+</head>
+
+<body>
+<header>
+    <h1>Florence Player Station Management</h1>
+</header>
+<main>
+    <div id="register-stations">
+        <h2>Register Station(s)</h2>
+        <hr>
+        <div>
+            <form id="register-stations-form">
+                <p>
+                    Here you can register a tracklist to play when a station button is pressed.
+		            Name each station with an alias and store the tracklist to play.
+		            If you want to play an artist you can find the artist's URI from their Spotify page.
+                </p>
+                <div id="station_1">
+                    <h4>Station one</h4>
+                    <label for="station_1_alias">Alias (currently: <span id="station_1_alias_placeholder" class="highlight">no alias</span>):</label>
+                    <input id="station_1_alias" name="station_1_alias" type="text" placeholder="An alias for identifying tracklists">
+                    <label for="station_1_tracklist">Tracklist URI (currently: <span id="station_1_tracklist_placeholder" class="highlight">not assigned</span>):</label>
+                    <input id="station_1_tracklist" name="station_1_tracklist" type="text" placeholder="The URI of the tracklist to play">
+                </div>
+                <div id="station_2">
+                    <h4>Station two</h4>
+                    <label for="station_2_alias">Alias (currently: <span id="station_2_alias_placeholder" class="highlight">no alias</span>):</label>
+                    <input id="station_2_alias" name="station_2_alias" type="text" placeholder="An alias for identifying tracklists">
+                    <label for="station_2_tracklist">Tracklist URI (currently: <span id="station_2_tracklist_placeholder" class="highlight">not assigned</span>):</label>
+                    <input id="station_2_tracklist" name="station_2_tracklist" type="text" placeholder="The URI of the tracklist to play">
+                </div>
+                <div id="station_3">
+                    <h4>Station three</h4>
+                    <label for="station_3_alias">Alias (currently: <span id="station_3_alias_placeholder" class="highlight">no alias</span>):</label>
+                    <input id="station_3_alias" name="station_3_alias" type="text" placeholder="An alias for identifying tracklists">
+                    <label for="station_3_tracklist">Tracklist URI (currently: <span id="station_3_tracklist_placeholder" class="highlight">not assigned</span>):</label>
+                    <input id="station_3_tracklist" name="station_3_tracklist" type="text" placeholder="The URI of the tracklist to play">
+                </div>
+                <div id="station_4">
+                    <h4>Station four</h4>
+                    <label for="station_4_alias">Alias (currently: <span id="station_4_alias_placeholder" class="highlight">no alias</span>):</label>
+                    <input id="station_4_alias" name="station_4_alias" type="text" placeholder="An alias for identifying tracklists">
+                    <label for="station_4_tracklist">Tracklist URI (currently: <span id="station_4_tracklist_placeholder" class="highlight">not assigned</span>):</label>
+                    <input id="station_4_tracklist" name="station_4_tracklist" type="text" placeholder="The URI of the tracklist to play">
+                </div>
+                <button id="register-stations-button" role="submit">✓ Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <div id="register" style="display: none">
+        <h2>Register New Tag</h2>
+        <div>
+            <form id="register-form">
+                <p>Here you can register an action to occur when a tag is tapped.</p>
+                <label for="uid">UID:</label>
+                <input id="uid" name="uid" type="text" placeholder="The unique tag ID">
+                <a id="read-rfid-tag" href="#">Read UID from RFID tag…</a>
+                <label for="alias">Alias:</label>
+                <input id="alias" name="alias" type="text" placeholder="Your personal alias / identifier">
+                <label for="action-class">Class:</label>
+                <select id="action-class" name="action-class">
+                </select>
+                <label for="parameter">Parameter:</label>
+                <input id="parameter" name="parameter" type="text" placeholder="A type-specific parameter">
+                <button id="register-button" role="submit">✓ Register Tag</button>
+                <button id="unregister-button" role="button">× Unregister Tag</button>
+            </form>
+        </div>
+    </div>
+    <div id="registry" style="display:none">
+        <h2>Registered Tags</h2>
+        <div id="tags"></div>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+
+</html>

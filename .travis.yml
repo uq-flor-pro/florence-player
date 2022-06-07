@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - 3.7
+
+install:
+  # Workaround for pi-rc522 dependency issue.
+  - pip install spidev RPi.GPIO
+
+  # Install package develop
+  - pip install -e .[develop]
+
+script:
+    # Code style checks.
+    - pycodestyle florence_player
+    - pylint florence_player
+
+    # Build check.
+    - python setup.py build

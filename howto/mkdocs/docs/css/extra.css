@@ -1,0 +1,13 @@
+:root > * {
+  --md-primary-fg-color:        #1e4249;
+  --md-primary-fg-color--light: #8d7b1d;
+  --md-primary-fg-color--dark:  #79161e;
+  --md-typeset-a-color:         #ca4e23;
+}
+
+/*
+1e4249 - dark blue
+8d7b1d - straw
+79161e - red
+ca4e23 - orange
+*/
