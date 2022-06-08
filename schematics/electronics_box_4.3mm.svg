@@ -6,7 +6,7 @@
    version="1.1"
    id="svg70"
    sodipodi:docname="electronics_box_4.3mm.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -30,13 +30,13 @@
      fit-margin-left="2"
      fit-margin-right="2"
      fit-margin-bottom="2"
-     inkscape:zoom="1"
-     inkscape:cx="475"
-     inkscape:cy="1079.5"
+     inkscape:zoom="2"
+     inkscape:cx="576.25"
+     inkscape:cy="1533"
      inkscape:window-width="1920"
-     inkscape:window-height="1019"
-     inkscape:window-x="1920"
-     inkscape:window-y="36"
+     inkscape:window-height="979"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="p-2" />
   <!--
@@ -126,6 +126,33 @@ SettingsUrl: http://festi.info/ElectronicsBox?FingerJoint_angle=90.0&amp;FingerJ
        stroke-width="0.2"
        id="path28"
        style="stroke:#ff0000;stroke-opacity:1;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.66264px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0264583"
+       x="-591.74872"
+       y="353.38135"
+       id="text4948"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan4946"
+         style="fill:#ffff00;stroke-width:0.0264583"
+         x="-591.74872"
+         y="353.38135">&lt;a href=&quot;https://www.flaticon.com/free-icons/pause&quot; title=&quot;pause icons&quot;&gt;Pause icons created by inkubators - Flaticon&lt;/a&gt;&lt;br&gt;</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#ffff00;stroke-width:0.0264583"
+         x="-591.74872"
+         y="356.70966"
+         id="tspan4950">&lt;a href=&quot;https://www.flaticon.com/free-icons/play-button&quot; title=&quot;play button icons&quot;&gt;Play button icons created by Pixel perfect - Flaticon&lt;/a&gt;&lt;br&gt;</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#ffff00;stroke-width:0.0264583"
+         x="-591.74872"
+         y="360.03796"
+         id="tspan4952">&lt;a href=&quot;https://www.flaticon.com/free-icons/next&quot; title=&quot;next icons&quot;&gt;Next icons created by Roundicons - Flaticon&lt;/a&gt;</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#ffff00;stroke-width:0.0264583"
+         x="-591.74872"
+         y="363.36624"
+         id="tspan4954" /></text>
   </g>
   <g
      id="p-3"

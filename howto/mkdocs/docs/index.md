@@ -6,15 +6,15 @@ hide:
   - navigation
 ---
 
-# *DRAFT* Florence Player 
-*by The Florence Project*
+# Florence Player Build Instructions
+*by [The Florence Project](https://itee.uq.edu.au/florence)*
 <figure markdown>
 ![](assets/final.jpg)
 <figcaption>The finished player TODO</figcaption>
 </figure>
-## Overview
-The Florence Project aimed to construct plans for a music player that would be suitable for families and Men's Sheds to build and simple for people living with dementia to use.
-Importantly, the player would have a backend accessible by web-browser over the local network to easily assign playlists to station buttons thus allowing people living with dementia and care-partners to easily individualise the music.
+## Aim
+With the Florence Player, the Florence Project aimed to construct plans for a music player that would be simple for people living with dementia to use and suitable for families and Men's Sheds to build. 
+The player would have a backend accessible by web-browser over the local network to easily assign playlists to station buttons allowing people living with dementia and care-partners to easily individualise the music.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way as this would differ from person to person.
 We built upon free and open source software projects to do this, prioritising free and open source hardware, and now release our modifications under a permissive licence so that others can build and build further upon this player.
 
@@ -30,27 +30,29 @@ We loved, and incorporated, the personalisation options of the <a href="https://
 ## Notice
 Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #legal TODO
 
-### Warranty 
+### Warranty/Licence
 TODO
 
 ## Parts list
 
-- 1 x Raspberry Pi 3B or 3B+
+- 1 x Raspberry Pi 3B or 3B+, usb cable and power pack
 - 2 x <a href="https://www.adafruit.com/product/1314">Speaker 3" Diameter, 4 Ohm, 3 Watt</a>
 - 1 x <a href="https://www.adafruit.com/product/3346">Adafruit I2S 3 Watt Stereo Speaker Bonnet for Raspberry Pi</a>
 - 1 x <a href="https://www.adafruit.com/product/3393">Panel Mount 10K Dual Linear Potentiometer with On/Off Switch</a>
 - 1 x <a href="https://core-electronics.com.au/black-metal-knob-14x24mm.html">Black Metal Knob for 0.25" shaft</a>
 - 1 x <a href="https://www.adafruit.com/product/856">MCP3008 - 8-Channel 10-Bit ADC With SPI Interface</a>
 - 1 x <a href="https://core-electronics.com.au/led-rgb-diffused-common-anode.html">RGB Diffused LED</a>
-- 2 x 2000 Ohm resistor
-- 1 x <a href="https://www.altronics.com.au/p/p5430-oupiin-40-way-header-pin/">40 pin headers, pin</a> (we only need 14 but get extra as you will probably want spares[^1])
+- 1 x 2000 Ohm resistor
+- 1 x <a href="https://www.altronics.com.au/p/p5430-oupiin-40-way-header-pin/">40 pin headers, pin</a>
 - 2 x <a href="https://www.altronics.com.au/p/p5390-oupiin-40-pin-header-socket/">40 pin headers, socket</a>
 - 1 x <a href="https://core-electronics.com.au/solderless-breadboard-300-tie-points-zy-60.html">Solderless breadboard for prototyping</a>
 - 8 x <a href="https://core-electronics.com.au/machine-screw-m3-10mm-length-phillips-25-pack.html">Machine Screw M3, 10mm length Philips</a>
 - 8 x <a href="https://core-electronics.com.au/machine-hex-nut-m3-25-pack.html">Machine Hex Nut M3</a>
 - 1 x <a href="https://www.altronics.com.au/p/h8945-raspberry-pi-mounting-hardware-kit/">Raspberry Pi Mounting kit</a>
 - 7 x <a href="https://www.altronics.com.au/p/s3255-spdt-momentary-solder-tail-push-button-microswitch/">S3255 SPDT Momentary Push Button Microswitch</a>
-- 8 x <a href="https://magnet.com.au/products/ferrite-disc-magnet-9-5mm-x-3mm?_atid=yoAZS1xoT68WpLOeGjgUGcbRDviEzy">6mm diameter by 3mm height ferrite disk magnets</a>
+- 4 x <a href="https://magnet.com.au/products/ferrite-disc-magnet-9-5mm-x-3mm?_atid=yoAZS1xoT68WpLOeGjgUGcbRDviEzy">9.5mm diameter by 3mm height ferrite disk magnets</a>
+- 4 x <a href="https://magnet.com.au/products/neodymium-disc-6mm-x-3mm">6mm diameter by 3mm rare earth magnet</a>
+- 1 x self mixing epoxy
 - <a href="https://www.altronics.com.au/p/w0912a-black-3mm-heatshrink-1.2m-length/">Heat Shrink Tubing 1.2m length</a> 3mm pre-shrunk, 1.5mm shrunk
 - <a href="https://core-electronics.com.au/hook-up-stranded-wire-white-22-awg.html">Hook-up stranded wire (22 AWG)</a>
 - <a href="https://core-electronics.com.au/hook-up-wire-black-22-awg.html">Hook-up standard solid wire (22 AWG)</a>
@@ -62,6 +64,8 @@ TODO
 - Soldering Iron
 - Drill and 2mm drill bit
 - Screwdriver
+- 400 grit sandpaper
+- IC extractor
 
 ## Design
 ### Hardware
@@ -73,17 +77,17 @@ Our first version was a 3D printed case with a single affordance: a clicky on/of
 <figcaption>Our first version</figcaption>
 </figure>
 In this version we wanted to include more options, especially the ability to skip tracks.
-However, since dementia is a progressive illness and over time someone with dementia might find it difficult to use certain features or find them confusing, we also wanted the case to be able to simplify over time.
+However, since dementia is a progressive illness and over time someone with dementia might find it too difficult to use certain features or find them confusing, we also wanted the case to be able to simplify over time.
 We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing they could be removed and this wood piece glued on top of that position.
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
-This means that the overall design remains the same but that any confusing elements can be removed over time.
+This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
 
-As some people living with dementia have reduced control of their hands, we chose switches that are easy to activate and spaced apart so that they can be individually pressed with a knuckle.
+As some people living with dementia have reduced dexterity in their hands, we chose switches that are easy to activate and spaced apart so that they can be individually pressed with a knuckle.
 
 ##### Laser-cutting
 
 We were working on this player during a lockdown and had no physical access to a laser cutter.
-Instead we opted to do our best to make a schematic and have it professionally laser cut.
+Instead we opted to make a schematic and have it professionally laser cut.
 
 We used the **boxes.py** generator for an <a href="https://www.festi.info/boxes.py/ElectronicsBox?language=en">electronics box</a> with the following settings:
 <figure markdown>
@@ -94,7 +98,7 @@ We used the **boxes.py** generator for an <a href="https://www.festi.info/boxes.
 Your settings will depend on the thickness of your wood.[^11]
 
 We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts for the components and the etching.
-Our final versions can be found in the schematics directory of the repository.
+Our final versions can be found in the [schematics directory](https://github.com/uq-flor-pro/mopidy-florence-player/tree/main/schematics) of the repository.
 
 ### Software
 For this project we use <a href="https://mopidy.com/">Mopidy</a> and based our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
@@ -119,7 +123,7 @@ Rather than create a new registry format for stations we decided it would be bet
 
 ##### Web interface
 
-To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases. Aliases are convenient names for naming the playlists associated with a station. 
+To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases. Aliases are convenient names for naming stations. 
 <figure markdown>
 ![](./assets/add_station_view.png){ width="450"}
     <figcaption>The form for assigning a tracklist to station 1</figcaption>
@@ -131,12 +135,10 @@ We added a separate module containing a Station class and four subclasses repres
 ## Build
 
 ### Assemble Speaker Bonnet
-We need to assemble the speaker bonnet <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/assembly">as per Adafruit's instructions</a>. This involves soldering the headers and speaker terminal blocks.
+We first assemble the speaker bonnet <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/assembly">as per Adafruit's instructions</a>. This involves soldering the headers and speaker terminal blocks.
 
 ### RaspberryPi OS
-!!! warning
-    Practice good security by keeping your Pi operating system up-to-date by regularly checking for updates, change the default password, and be careful running scripts and commands from the internet.
-   
+
 We need to install the latest version of the Lite RaspberryPi OS (previously known as Raspbian).
 <a href="https://randomnerdtutorials.com/installing-raspbian-lite-enabling-and-connecting-with-ssh/">This tutorial from Random Nerd Tutorials</a> explains the steps involved to flash the image to a microSD card with wireless credentials and SSH enabled.
 Make sure to change the default password in step 2.9.
@@ -144,12 +146,14 @@ Make sure to change the default password in step 2.9.
 Power on the pi and check we can see connect to the Pi without knowing its ip by running the following command to SSH in:
 ``` bash
 ssh pi@raspberrypi.local 
-# or, if ssh tries to use ssh keys:
-# ssh pi@raspberrypi.local -o IdentitiesOnly=yes
 ```
-and if you get the result `ssh: Could not resolve hostname raspberrypi.local: Name or service not known` then try the following section. If you see a login prompt then log into the pi using the credentials you set and then skip the next section.
+or, if ssh tries to use ssh keys:
+```bash 
+ssh pi@raspberrypi.local -o IdentitiesOnly=yes
+```
+If you get the result `ssh: Could not resolve hostname raspberrypi.local: Name or service not known` then try the following section. If you see a login prompt then log into the pi using the credentials you set and then skip the next section.
 
-#### (optional) If your raspberrypi is not  accessible via raspberrypi.local
+#### (optional) If your Raspberry Pi is not accessible via raspberrypi.local
 In this case we need the ip of our device to log in via SSH.
 There are a few ways to get this.
 One way is to login to your router and look for the raspberry pi's connection.
@@ -167,23 +171,24 @@ First we check for updates and install any
 sudo apt update
 sudo apt upgrade
 ```
-    
+    !!! warning
+    Practice good security by keeping your Pi operating system up-to-date by regularly checking for updates, change the default password, and be careful running scripts and commands from the internet.
+   
 ### Set up speakers
 
-In this step we wire up the speakers and connect them to the terminal blocks of the bonnet. The first half of [this video](assets/https://www.youtube.com/watch?v=8UXloSxQlEA) shows the method we used. We can ignore the second half of the video as we are not attaching the speakers to a breadboard but to the Speaker Bonnet's terminal blocks. The method we use is:
-    
+In this step we wire up the speakers and connect them to the terminal blocks of the bonnet.
+
 1. Cut the stranded wire to length #todo check length
 2. Strip all the ends of the wires
 3. Twist and tin each end
 4. Solder one end to the speakers as in the video
 5. Attach other end to speaker jumpers
 
-### Install Speaker Bonnet 
-!!! important
-    Do this before install Mopidy or running the install script for the player. If done after this we had issues with sound.
+The first half of [this video](assets/https://www.youtube.com/watch?v=8UXloSxQlEA) shows the method we used. We can ignore the second half of the video as we are not attaching the speakers to a breadboard but to the Speaker Bonnet's terminal blocks.
     
-The first thing to do after updating the RaspberryPi OS needs to be installing the Speaker Bonnet.
-In our experience this needs to be done early on or we might have problems later.
+### Install Speaker Bonnet 
+
+In our experience installing the Speaker Bonnet needs to be done early on or we might have problems later.
 The instructions are <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/raspberry-pi-usage">on the Adafruit website</a>.
 If you see a big red warning on that page regarding the Full version don't panic, we are using the Lite version of the RaspberryPi OS so this doesn't apply to us.
 
@@ -224,7 +229,7 @@ We add heatshrink to each to help prevent against short-circuits occuring. First
 
 ### Setup RaspberryPi OS and install the player
 !!! warning
-    Be careful running commands from the internet
+    Be careful running commands
     
 <a href="https://docs.mopidy.com/en/latest/installation/">Install Mopidy via their instructions</a>
 
@@ -352,7 +357,7 @@ Mount the pi so the top is just below the cutouts that will hold the triangles f
 Account for the extra room taken up by the Speaker Bonnet and make sure to account for the extra distance taken up by the power cable at the bottom.[^17]
 
 !!! important
-    Check what cables need to be connected before assembling. In our case the usb micro cable can't be connected after assembling.
+    Check what cables need to be connected before assembling. In our case the micro usb cable can't be connected after assembling.
 
 Drill holes for the standoffs, then screw the standoffs in and mount the pi. 
 
@@ -394,6 +399,21 @@ We wrapped a 13cm by 4mm long piece in 400 grit sandpaper to form a nice tool fo
 #### Gluing up
 When it was time to glue we used the method in <a href="https://www.youtube.com/watch?v=oSs3zhVkcTc">this video</a>.
 
+#### Magnetic closing
+Glue the ferrite magnets in the corner of the triangular shelves.
+<figure markdown>
+![](assets/ferrite_magnet.jpg){width="400"}
+<figcaption>
+Gluing the ferrite magnets.
+</figcaption>
+</figure>
+Then glue the rare-earth magnets to the corners of the top piece setting them inside by 1.5mm each way checking the polarities are correct.
+<figure markdown>
+![](assets/rare_earth.jpg){width="400"}
+<figcaption>Gluing the rare-earth magnets</figcaption>
+</figure>
+Leave to set.
+
 ## Future ideas
 
 In the wild it A button to update the radio at a convenient time.
@@ -419,8 +439,6 @@ This is known as pinmode.
 To use the RFID reading capabilities of Pummeluff at the same time it is necessary to change the pinmode to Board from BCM in the gpio_handler and mcp_watcher files otherwise conflicting modes will cause an error.[^16]
 This stumped us for a while.
 Since we aren't using this the RFID reader at the moment, we have commented out the sections where it this code gets called and used BCM mode.
-
-### 
 
 ## Notes
 ### Speaker Bonnet

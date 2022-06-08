@@ -21,4 +21,5 @@ extra_css:
 repo_url: https://github.com/uq-flor-pro/mopidy-florence-player
 repo_name: mopidy-florence-player
 extra:
-  homepage: https://uq.edu.au
+  homepage: https://itee.uq.edu.au/florence
+edit_uri: ""
