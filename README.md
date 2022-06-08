@@ -1,5 +1,5 @@
 # Florence Player
-*[The Florence Project](https://itee.uq.edu.au/florence)*
+*[Florence Project](https://itee.uq.edu.au/florence)*
 
 A simple to operate player as part of the Florence Project.
 Designed for use by people with dementia, and for construction by men's sheds and families.
