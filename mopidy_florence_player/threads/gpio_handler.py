@@ -34,10 +34,6 @@ class GPIOHandler(Thread):
         22: PlayStationFour,
     }
 
-    # shutdown_pin = 3
-
-    led_pin = 14
-
     def __init__(self, core, stop_event):
         '''
         Class constructor.
@@ -59,27 +55,27 @@ class GPIOHandler(Thread):
         Run the thread.
         '''
 
+        GPIO.setmode(GPIO.BCM)
         GPIO.cleanup()
 
-        try:
-            for pin in self.button_pins:
-                LOGGER.info('Setting up pin %s as button pin', pin)
-                GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-                GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
-                LOGGER.info('Setup pin %s as button pin', pin)
-        except RuntimeError:
-            sleep(1)
-            self.run()
+        for pin in self.button_pins:
+            success = False
+            while not success:
+                try:
+                    LOGGER.info('Setting up pin %s as button pin', pin)
+                    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+                    GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
+                    LOGGER.info('Setup pin %s as button pin', pin)
+                    success = True
+                except Exception as ex:
+                    sleep(1)
+                    LOGGER.info(str(ex))
 
-        LOGGER.debug('Setup pin %s as LED pin', self.led_pin)
-        GPIO.setup(self.led_pin, GPIO.OUT)
-        GPIO.output(self.led_pin, GPIO.HIGH)
-
+        play_sound('boot.wav')
         self.stop_event.wait()
         LOGGER.debug('Cleaning up GPIO')
         GPIO.cleanup()
         LOGGER.debug('Cleaned up GPIO')
-
 
     def button_push(self, pin):
         '''
