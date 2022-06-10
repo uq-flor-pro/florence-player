@@ -421,17 +421,25 @@ Gluing the ferrite magnets.
 Then glue the rare-earth magnets to the corners of the top piece setting them inside by 1.5mm each way checking the polarities are correct.
 <figure markdown>
 ![](assets/rare_earth.jpg){width="400"}
-<figcaption>Gluing the rare-earth magnets. Poor glue job but not noticable from the top.</figcaption>
+<figcaption>One of the rare-earth magnets.</figcaption>
 </figure>
 Leave to set.
 
-## Future work
+<!--
+Future work 
+TODO
 
-In the wild it A button to update the radio at a convenient time.
-Round the edges so they are not a hazzard.
-
+- a more familiar form would be good
+- the volume knob is quite unresponsive
+- faster boot
+- smarthome integration via mqtt or other
+- it would be nice to have an easy way to update the player when convenient without having to ssh in
+-->
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
+
+### The corners of the player are sharp
+Probably a bit dangerous for some people.
 
 ### Stealing the Speaker Bonnet's I2S pin to use as a station switch
 We were wondering why audio was working without the extension but not when it was running.
