@@ -1,13 +1,13 @@
 ---
 title: Florence Player Build Instructions
-author: The Florence Project
+author: Florence Project
 description: A simple to operate music player for people living with dementia designed to be build by families or Men's sheds
 hide:
   - navigation
 ---
 
 # Florence Player Build Instructions
-*by [The Florence Project](https://itee.uq.edu.au/florence)*
+*by the [Florence Project](https://itee.uq.edu.au/florence)*
 <figure markdown>
 ![](assets/final.jpg)
 <figcaption>The finished player TODO</figcaption>
@@ -16,11 +16,14 @@ hide:
 With the Florence Player, the Florence Project aimed to construct plans for a music player that would be simple for people living with dementia to use and suitable for families and Men's Sheds to build. 
 The player would have a backend accessible by web-browser over the local network to easily assign playlists to station buttons allowing people living with dementia and care-partners to easily individualise the music.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way as this would differ from person to person.
-We built upon free and open source software projects to do this, prioritising free and open source hardware, and now release our modifications under a permissive licence so that others can build and build further upon this player.
+We wanted the potential to connect to a smart-home system down the track and to capture data about how and when the player was being used.
+We would prioritise free and open source software, hardware and services and release our modifications under such a licence.
 
-## Motivation
+## Rationale
 
 [In a systematic review ](https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajag.12642)of 4 studies on the effects of individualised music listening, Gariola et al concluded that the evidence, though limited, suggested positive impacts on agitation, anxiety, depression and emotion. The authors also noted that the outcomes were favourable compared to more resource-intensive interventions.
+
+In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music: is recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player the large media control icons and speakers might communicate its function. Where this device may assist most is in the choice of music. When turned on it plays the first station and affords the choice of three others programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses this may itself have beneficial impacts. The player can be left on and controlled by the labelled switches, potentially making the device usable.
 
 ## Inspiration
 
@@ -77,12 +80,12 @@ Our first version was a 3D printed case with a single affordance: a clicky on/of
 <figcaption>Our first version</figcaption>
 </figure>
 In this version we wanted to include more options, especially the ability to skip tracks.
-However, since dementia is a progressive illness and over time someone with dementia might find it too difficult to use certain features or find them confusing, we also wanted the case to be able to simplify over time.
-We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing they could be removed and this wood piece glued on top of that position.
+However, since dementia is a progressive illness and over time someone with dementia might find it too difficult to use certain features that they could previously, we also wanted the case to be able to simplify over time.
+We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing they could be removed and this wood piece secured on top of the etching and switch holes.
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
 This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
 
-As some people living with dementia have reduced dexterity in their hands, we chose switches that are easy to activate and spaced apart so that they can be individually pressed with a knuckle.
+As some people living with dementia have reduced dexterity in their hands, we chose switches that are easy to activate that way and spaced apart so that they can be individually pressed with a knuckle.
 
 ##### Laser-cutting
 
@@ -97,8 +100,8 @@ We used the **boxes.py** generator for an <a href="https://www.festi.info/boxes.
 
 Your settings will depend on the thickness of your wood.[^11]
 
-We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts for the components and the etching.
-Our final versions can be found in the [schematics directory](https://github.com/uq-flor-pro/mopidy-florence-player/tree/main/schematics) of the repository.
+We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts for the components and for the etching.
+Our final version can be found in the [schematics directory](https://github.com/uq-flor-pro/mopidy-florence-player/tree/main/schematics) of the repository.
 
 ### Software
 For this project we use <a href="https://mopidy.com/">Mopidy</a> and based our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
@@ -228,10 +231,11 @@ The other end gets connected to the component.
 We add heatshrink to each to help prevent against short-circuits occuring. First cut the heatshrink, slide it over then solder and lastly use a lighter or heat gun to shrink the heatshrink. <a href="https://youtu.be/6rmErwU5E-k?t=439">This video</a> demostrates the whole process.
 
 ### Setup RaspberryPi OS and install the player
-!!! warning
-    Be careful running commands
-    
+
 <a href="https://docs.mopidy.com/en/latest/installation/">Install Mopidy via their instructions</a>
+
+!!! important
+    Unfortunately Spotify integration is currently not working due to Spotify deprecating the API libspotify communicates with. [This issue](https://github.com/mopidy/mopidy-spotify/issues/110) discusses resolving this situation.
 
 Install pip for Python package management, and the requirements for the Spotify extension
 ``` bash
@@ -239,7 +243,7 @@ git python3-pip libSpotify12 python3-Spotify
 ```
 Install the Iris Mopidy web front end and the Spotify extension.
 ``` bash
-sudo pip install mopidy-iris Mopidy-Spotify
+sudo pip install mopidy-iris Mopidy-Spotify Mopidy-Local
 ```
 
 Enable SPI in rasp-config [using this link if needed.](assets/https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/)
@@ -259,16 +263,17 @@ Allow Mopidy to shutdown the Pi without requiring a password
 echo "mopidy ALL = NOPASSWD: /sbin/shutdown" > /etc/sudoers.d/mopidy
 ```
 -->
-Edit the Mopidy configuration and set Spotify credentials, local music location, etc. TODO
+Edit the Mopidy configuration and set Spotify credentials, local music location, etc.
+
 ``` bash
 sudo nano /etc/mopidy/mopidy.conf
 ```
 
-Install our modified player code.
+Install our modified player code. TODO confirm working
 ``` bash
 sudo cd /usr/src
-sudo git clone https://github.com/florenceproject/florenceplayer.git
-cd florenceplayer
+sudo git clone https://github.com/uq-flor-pro/mopidy-florence-player.git
+cd mopidy-florence-player
 sudo python setup.py install
 ```
 
@@ -286,13 +291,15 @@ Edit the boot file:
 sudo vim /boot/config.txt
 ```
 
-And add the following at the bottom to set the shutdown pin[^19]:
+And add the following at the bottom to set the shutdown pin[^19] and enable the on LED:
 ```
 [shutdown]
 dtoverlay=gpio-shutdown,active_low=0
+
+enable_uart=1
 ```
 
-And save the file and reboot the pi
+And save the file and reboot the pi:
 ``` bash
 sudo reboot
 ```
@@ -300,7 +307,11 @@ sudo reboot
 #### Access the configuration page
 
 The web-server on the player is accessible via port 6680. 
-Navigating to [http://raspberrypi.local:6680](http://raspberrypi.local:6680) with a browser on the same network will hopefully show the Mopidy page with links to Iris and Florence.
+Navigating to [http://raspberrypi.local:6680](http://raspberrypi.local:6680) with a browser on the same network will hopefully show the Mopidy page with links to Iris, Florence and Local.
+<figure markdown>
+![](assets/mopidy_page.png)
+<figcaption>The main configuration page</figurecaption>
+</figure>
 From here we can create playlists with Iris, and assign playlists to stations with Florence.
 
 ### Stripboard build
@@ -394,7 +405,7 @@ These pieces came in handy and we used one here as a cross-piece.
 </figure>
 
 We also found we needed to sand in between the tabs of the sides pieces to get a good fit[^18].
-We wrapped a 13cm by 4mm long piece in 400 grit sandpaper to form a nice tool for this.
+We wrapped another piece, 13cm by 8mm, in 400 grit sandpaper to form a nice tool for this.
 
 #### Gluing up
 When it was time to glue we used the method in <a href="https://www.youtube.com/watch?v=oSs3zhVkcTc">this video</a>.
@@ -410,20 +421,17 @@ Gluing the ferrite magnets.
 Then glue the rare-earth magnets to the corners of the top piece setting them inside by 1.5mm each way checking the polarities are correct.
 <figure markdown>
 ![](assets/rare_earth.jpg){width="400"}
-<figcaption>Gluing the rare-earth magnets</figcaption>
+<figcaption>Gluing the rare-earth magnets. Poor glue job but not noticable from the top.</figcaption>
 </figure>
 Leave to set.
 
-## Future ideas
+## Future work
 
 In the wild it A button to update the radio at a convenient time.
-Made the led stay on while the pi is on.
+Round the edges so they are not a hazzard.
 
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
-
-### We broke a tab doing a test assembly
-We're still annoyed about that (see above).
 
 ### Stealing the Speaker Bonnet's I2S pin to use as a station switch
 We were wondering why audio was working without the extension but not when it was running.
