@@ -1,0 +1,82 @@
+[core]
+#cache_dir = $XDG_CACHE_DIR/mopidy
+#config_dir = $XDG_CONFIG_DIR/mopidy
+#data_dir = $XDG_DATA_DIR/mopidy
+#max_tracklist_length = 10000
+#restore_state = false
+
+[logging]
+#verbosity = 0
+#format = %(levelname)-8s %(asctime)s [%(process)d:%(threadName)s] %(name)s\n  %(message)s
+#color = true
+#config_file =
+
+[audio]
+#mixer = software
+#mixer_volume = 10
+mixer = alsamixer
+#output = alsasink
+#buffer_time =
+
+[alsamixer]
+card = 1
+control = PCM
+min_volume = 0
+max_volume = 40
+volume_scale = cubic
+
+[proxy]
+#scheme =
+#hostname =
+#port =
+#username =
+#password =
+
+[file]
+enabled = true
+media_dirs =
+    /home/pi/music
+#  $XDG_MUSIC_DIR|Music
+#  ~/|Home
+#excluded_file_extensions =
+#  .directory
+#  .html
+#  .jpeg
+#  .jpg
+#  .log
+#  .nfo
+#  .pdf
+#  .png
+#  .txt
+#  .zip
+#show_dotfiles = false
+#follow_symlinks = false
+#metadata_timeout = 1000
+
+[http]
+enabled = true
+hostname = 0.0.0.0
+port = 6680
+zeroconf = Mopidy HTTP server on $hostname
+allowed_origins =
+csrf_protection = true
+default_app = mopidy
+
+[m3u]
+#enabled = true
+#base_dir =
+#default_encoding = latin-1
+#default_extension = .m3u8
+#playlists_dir =
+
+[spotify]
+enabled = false
+username =
+password =
+client_id =
+client_secret =
+allow_playlists = true
+
+[local]
+enabled = true
+media_dir = /home/pi/music/

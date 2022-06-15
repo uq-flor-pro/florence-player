@@ -278,10 +278,16 @@ Allow Mopidy to shutdown the Pi without requiring a password
 echo "mopidy ALL = NOPASSWD: /sbin/shutdown" > /etc/sudoers.d/mopidy
 ```
 -->
-Edit the Mopidy configuration and set Spotify credentials, local music location, etc.
+Edit the Mopidy configuration and set Spotify credentials, local music location, etc. This will depend on your setup but an example configuration file is provided in the `other` directory.
 
 ``` bash
 sudo nano /etc/mopidy/mopidy.conf
+```
+
+Create the folder for webuploads, and give all users the right to read and write.
+``` bash
+mkdir -p /home/pi/music/webuploads
+chmod og+rw -R /home/pi/music/webuploads
 ```
 
 Install our modified player code. TODO confirm working
