@@ -16,7 +16,7 @@ LOGGER = getLogger(__name__)
 
 class Tracklist(Action):
     '''
-    Replaces the current tracklist with the URI retreived from the tag's
+    Replaces the current tracklist with the URI retrieved from the tag's
     parameter.
     '''
 

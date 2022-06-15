@@ -9,6 +9,7 @@ __all__ = (
     'RegisterStationHandler',
     'UnregisterHandler',
     'ActionClassesHandler',
+    'UploadFile',
 )
 
 from json import dumps
@@ -19,6 +20,10 @@ from tornado.web import RequestHandler
 from mopidy_florence_player.registry import REGISTRY
 from mopidy_florence_player.actions import ACTIONS
 from mopidy_florence_player.threads import TagReader
+
+import os
+
+import subprocess
 
 LOGGER = getLogger(__name__)
 
@@ -149,7 +154,7 @@ class RegisterStationHandler(RequestHandler):  # pylint: disable=abstract-method
 
                 LOGGER.debug('Trying to add station')
                 REGISTRY.register(
-                    action_class='Tracklist',
+                    action_class="Tracklist",
                     uid=station,
                     alias=alias,
                     parameter=tracklist,
@@ -230,3 +235,29 @@ class ActionClassesHandler(RequestHandler):  # pylint: disable=abstract-method
 
         self.set_header('Content-type', 'application/json')
         self.write(dumps(data))
+
+
+class UploadFile(RequestHandler):
+    def post(self):
+        file1 = self.request.files['file1'][0]
+        original_fname = file1['filename']
+        ext = os.path.splitext(original_fname)[1]
+        LOGGER.info(f'Adding file {original_fname}')
+
+        if ext == ".mp3" or ext == ".wav" or ext == ".flac":
+            output_file = open("/home/pi/music/webuploads/" + original_fname, 'wb')
+            output_file.write(file1['body'])
+            LOGGER.info('Successfully added new music')
+        elif ext == ".zip":
+            output_file = open("/tmp" + original_fname, 'wb')
+            output_file.write(file1['body'])
+
+            subprocess.run(["unzip", "-d", "/home/pi/music/webuploads/", "/tmp" + original_fname, ])
+            LOGGER.info('Successfully added new music')
+        else:
+            LOGGER.info('No valid file found')
+            self.set_status(500)
+            self.finish("Invalid file found.")
+
+        self.finish("Upload successful")
+    get = post

@@ -59,14 +59,15 @@ class GPIOHandler(Thread):
         GPIO.cleanup()
 
         for pin in self.button_pins:
-            success = False
-            while not success:
+            # sometimes pin doesn't come up, try multiple times before skipping
+            failure = 5
+            while failure > 0:
                 try:
+                    failure -= 1
                     LOGGER.info('Setting up pin %s as button pin', pin)
                     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
                     GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
                     LOGGER.info('Setup pin %s as button pin', pin)
-                    success = True
                 except Exception as ex:
                     sleep(1)
                     LOGGER.info(str(ex))

@@ -203,6 +203,10 @@ div.tag span.parameter
     width           : 100%;
 }
 
+#register-stations-form input[type="radio"] {
+    width: auto;
+}
+
 .highlight {
     color: #00f;
 }
@@ -215,4 +219,36 @@ div.tag span.parameter
 .error {
     border: 2px solid red;
     padding: 10px;
+}
+
+.submit {
+    background: #090;
+}
+
+/* File upload responsive */
+#uploadfile {
+    display: none;
+}
+
+main {
+    display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+    #uploadfile {
+        display: block;
+    }
+    #draganddrop {
+        display: none;
+    }
+    main {
+        display: unset;
+    }
+}
+
+/* Drop zone */
+#drop_zone {
+    border: 5px solid blue;
+    width:  200px;
+    height: 100px;
 }

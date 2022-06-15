@@ -36,10 +36,8 @@ class PlayStation(Action):
         try:
             action = REGISTRY[str(station)]
             action(core)
-            play_sound('success.wav')
         except Exception as ex:
             LOGGER.info("Can't fetch parameter. Maybe there's no tracklist assigned to this station yet. Exception: %s", str(ex))
-            play_sound('fail.wav')
             return
 
 class PlayStationOne(PlayStation):
@@ -81,4 +79,4 @@ class PlayStationFour(PlayStation):
     def execute(cls, core):
         station = 'station_4'
 
-        super().execute(core, station) 
+        super().execute(core, station)

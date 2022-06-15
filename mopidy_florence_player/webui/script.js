@@ -243,6 +243,82 @@ function handle_station_response(s1, s2, s3, s4) {
     document.querySelector("#station_4").className = station_4_class
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop
+function dragOverHandler(ev) {
+    console.log('File(s) in drop zone');
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+}
+
+function dropHandler(ev) {
+    console.log('File(s) dropped');
+
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+    if (ev.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+            // If dropped items aren't files, reject them
+            if (ev.dataTransfer.items[i].kind === 'file') {
+                const file = ev.dataTransfer.items[i].getAsFile();
+                filelist.push(file);
+            }
+        }
+    } else {
+        // Use DataTransfer interface to access the file(s)
+            for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+                filelist.push(ev.dataTransfer.files[i]);
+            }
+    }
+  document.querySelector("#filelist").innerHTML = ""
+
+  for (var f of filelist) {
+      var li = document.createElement("li");
+      li.innerHTML = f.name
+      document.querySelector("#filelist").appendChild(li)
+  }
+}
+
+async function sendFiles() {
+    document.querySelector("#sendfiles").innerHTML = "Sending..."
+    for (var f of filelist) {
+        try {
+            let result = await uploadFile(f);
+        } catch {
+            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip.")
+            return
+        }
+    }
+    // reset interface
+    filelist = []
+    document.querySelector("#filelist").innerHTML = "Nothing yet."
+    document.querySelector("#sendfiles").innerHTML = "✓ Send Files"
+    alert('Files successfully uploaded')
+}
+
+// https://stackoverflow.com/questions/48969495/in-javascript-how-do-i-should-i-use-async-await-with-xmlhttprequest
+function uploadFile(file) {
+    return new Promise(function (resolve, reject) {
+        var url = '/florence/upload/file'
+        var xhr = new XMLHttpRequest()
+        var formData = new FormData()
+        xhr.open('POST', url, true)
+        xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject("Error");
+            }
+        }
+        formData.append('file1', file)
+        xhr.send(formData)
+    });
+}
+
+/* start */
+
+var filelist = []
+
 api = new API()
 
 api.refreshRegistry()

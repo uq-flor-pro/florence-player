@@ -17,4 +17,4 @@ def play_sound(sound):
     '''
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
     # play at 50% volume
-    system('mplayer -volume 50 -ao alsa {} &> /dev/null'.format(file_path))
+    system('mpv --volume=50 {} &> /dev/null'.format(file_path))

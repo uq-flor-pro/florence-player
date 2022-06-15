@@ -9,7 +9,7 @@ import mopidy
 from logging import getLogger
 from .frontend import FlorencePlayerFrontend
 from .web import LatestHandler, RegistryHandler, RegisterHandler, UnregisterHandler, \
-    ActionClassesHandler, RegisterStationHandler
+    ActionClassesHandler, RegisterStationHandler, UploadFile
 
 
 LOGGER = getLogger(__name__)
@@ -32,6 +32,7 @@ def app_factory(config, core):  # pylint: disable=unused-argument
         ('/registerstations/', RegisterStationHandler),
         ('/unregister/', UnregisterHandler),
         ('/action-classes/', ActionClassesHandler),
+        ('/upload/file', UploadFile),
     ]
 
 

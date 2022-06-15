@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -20,8 +20,8 @@
             <form id="register-stations-form">
                 <p>
                     Here you can register a tracklist to play when a station button is pressed.
-		            Name each station with an alias and store the tracklist to play.
-		            If you want to play an artist you can find the artist's URI from their Spotify page.
+                    Name each station with an alias and store the tracklist to play.
+                    If you want to play an artist you can find the artist's URI from their Spotify page.
                 </p>
                 <div id="station_1">
                     <h4>Station one</h4>
@@ -51,10 +51,35 @@
                     <label for="station_4_tracklist">Tracklist URI (currently: <span id="station_4_tracklist_placeholder" class="highlight">not assigned</span>):</label>
                     <input id="station_4_tracklist" name="station_4_tracklist" type="text" placeholder="The URI of the tracklist to play">
                 </div>
-                <button id="register-stations-button" role="submit">✓ Save Changes</button>
+                <button id="register-stations-button" role="submit">✓ Save Tracklist Changes</button>
             </form>
         </div>
     </div>
+    <hr>
+    <div id="draganddrop" style="width: 30%">
+        <h2>Send audio to Florence</h2>
+        <form hidden enctype="multipart/form-data" action="/florence/upload/dnd" method="post">
+
+        </form>
+        <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
+            <p>Drag one or more files to this Drop Zone ...</p>
+        </div>
+        <div>
+            <h3>Clicking send will send the following files to Florence Player:</h3>
+            <ul id="filelist">
+                Nothing yet.
+            </ul>
+            <button class="submit" onclick="sendFiles()" id="sendfiles">✓ Send Files</button>
+        </div>
+    </div>
+        <div id="uploadfile">
+            <h2>Upload a file to Florence Player</h2>
+            <p>Upload a single song (mp3, wav, or flac) or zip file of songs to the Player</p>
+            <form enctype="multipart/form-data" action="/florence/upload/file" method="post">
+                <input type="file" name="file1">
+                <button type="submit" class="submit">✓ Upload File</button>
+            </form>
+        </div>
     <div id="register" style="display: none">
         <h2>Register New Tag</h2>
         <div>
