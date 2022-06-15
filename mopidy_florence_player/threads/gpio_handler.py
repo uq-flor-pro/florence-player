@@ -64,6 +64,7 @@ class GPIOHandler(Thread):
             while failure > 0:
                 try:
                     failure -= 1
+                    GPIO.cleanup(pin)
                     LOGGER.info('Setting up pin %s as button pin', pin)
                     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
                     GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
@@ -73,6 +74,7 @@ class GPIOHandler(Thread):
                     LOGGER.info(str(ex))
 
         play_sound('boot.wav')
+        PlayStationOne.execute(self.core)
         self.stop_event.wait()
         LOGGER.debug('Cleaning up GPIO')
         GPIO.cleanup()

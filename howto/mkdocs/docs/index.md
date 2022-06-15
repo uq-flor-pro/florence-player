@@ -13,17 +13,22 @@ hide:
 <figcaption>The finished player TODO</figcaption>
 </figure>
 ## Aim
-The Florence Project aimed to create a music player that would be simple to use by people living with dementia and suitable for families and Men's Sheds to construct. 
-The player would have a backend accessible by web browser over the local network to easily assign playlists to station buttons, allowing people living with dementia and their care partners to easily individualise the music.
+The Florence Project aimed to create a music player that people with dementia would find simple to use and be suitable for Men's Sheds to construct. 
+The player would have a backend accessible by web browser over the local network to easily assign playlists or internet radio streams to station buttons, allowing people living with dementia and their care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
-We wanted the potential to connect to a smart-home system down the track and to capture data about how and when the player was being used.
+We wanted the potential to connect to a smart-home system down the track and to have the option to capture data about how and when the player was being used.
 We would prioritise free and open source software, and hardware, and release our modifications under such a licence.
 
 ## Rationale
 
 [In a systematic review ](https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajag.12642)of 4 studies on the effects of individualised music listening, Gariola et al concluded that the evidence, though limited, suggested positive impacts on agitation, anxiety, depression, and emotion. The authors also noted that the outcomes were favourable compared to more resource-intensive interventions.
 
-In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a preprogrammed station and affords the choice of three others programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts.
+However, beyond these aspects [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
+> People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
+
+Could we make music more accessible to people living with dementia, and include more deeply those involved with their care and broader family and community at the same time?
+
+In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a preprogrammed station and affords the choice of three others programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
 
 ## Inspiration
 
@@ -85,7 +90,7 @@ We cut and etched an extra piece of wood so that if the play/pause/skip buttons 
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
 This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
 
-As some people living with dementia have reduced dexterity in their hands, we chose switches that are easy to activate that way and spaced apart so that they can be individually pressed with a knuckle.
+As some people living with dementia have reduced dexterity in their hands, we chose that can be individually pressed with a knuckle.
 
 ##### Laser-cutting
 
@@ -132,6 +137,18 @@ To change the web interface we added a new form for setting stations. This commu
     <figcaption>The form for assigning a tracklist to station 1</figcaption>
 </figure>
 
+##### Drag and drop/file upload
+We also added the ability to send files to the player via the web interface.
+<figure markdown>
+![](./assets/drag_and_drop.png){ width="450"}
+    <figcaption>The form (as seen on desktop) for sending files to the player</figcaption>
+</figure>
+<figure markdown>
+![](./assets/upload_files.png){ width="450"}
+    <figcaption>The form (as seen on mobile) for sending a file to the player</figcaption>
+</figure>
+This was useful after Spotify deprecated the API that the Mopidy-Spotify extension uses. Until a workaround is found for that we can still easily send audio to the player this way.
+
 ##### Stations
 We added a separate module containing a Station class and four subclasses representing the four station buttons.
 
@@ -174,8 +191,8 @@ First we check for updates and install any
 sudo apt update
 sudo apt upgrade
 ```
-    !!! warning
-    Practise good security by keeping your Pi operating system up-to-date by regularly checking for updates, changing the default password, and exercising caution when running scripts and commands from the internet.
+!!! warning
+    Practise good security by keeping your Pi operating system up-to-date by regularly checking for updates, changing the default password, and exercising caution when running scripts and commands from untrsuted sources.
    
 ### Set up speakers
 
@@ -408,7 +425,7 @@ These pieces came in handy and we used one here as a cross-piece.
 We also found we needed to sand in between the tabs of the side pieces to get a good fit[^18].
 We wrapped another piece, 13cm by 8mm, in 400 grit sandpaper to form a nice tool for this.
 
-#### Glueing up
+#### Gluing up
 When it was time to glue we used the method in <a href="https://www.youtube.com/watch?v=oSs3zhVkcTc">this video</a>.
 
 #### Magnetic closing
@@ -416,7 +433,7 @@ Glue the ferrite magnets in the corner of the triangular shelves.
 <figure markdown>
 ![](assets/ferrite_magnet.jpg){width="400"}
 <figcaption>
-Glueing the ferrite magnets.
+Gluing the ferrite magnets.
 </figcaption>
 </figure>
 Then glue the rare-earth magnets to the corners of the top piece, setting them inside by 1.5mm each way, checking the polarities are correct.
@@ -436,6 +453,10 @@ TODO
 - smarthome integration via mqtt or other
 - it would be nice to have an easy way to update the player when convenient without having to ssh in
 -->
+
+## Future Work
+One downside with the Raspberry Pi is that it can take upwards of 30 seconds for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
+
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
 
