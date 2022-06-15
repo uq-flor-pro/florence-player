@@ -26,8 +26,6 @@ We would prioritise free and open source software, and hardware, and release our
 However, beyond these aspects [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
 > People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
 
-Could we make music more accessible to people living with dementia, and include more deeply those involved with their care and broader family and community at the same time?
-
 In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a preprogrammed station and affords the choice of three others programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
 
 ## Inspiration
