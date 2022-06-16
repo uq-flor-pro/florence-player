@@ -18,8 +18,8 @@ theme:
     text: Noto Sans
 extra_css:
   - css/extra.css
-repo_url: https://github.com/uq-flor-pro/mopidy-florence-player
-repo_name: mopidy-florence-player
+repo_url: https://github.com/uq-flor-pro/florence-player
+repo_name: florence-player
 extra:
   homepage: https://itee.uq.edu.au/florence
 edit_uri: ""

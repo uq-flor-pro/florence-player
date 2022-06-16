@@ -4,7 +4,7 @@
 A simple to operate player as part of the Florence Project.
 Designed for use by people with dementia, and for construction by men's sheds and families.
 
-[See the full build instructions here.](https://uq-flor-pro.github.io/mopidy-florence-player)
+[See the full build instructions here.](https://uq-flor-pro.github.io/florence-player)
 
 <img src="howto/mkdocs/docs/assets/final.jpg" alt="drawing" width="500"/>
 

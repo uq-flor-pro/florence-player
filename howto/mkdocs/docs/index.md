@@ -104,7 +104,7 @@ We used the **boxes.py** generator for an <a href="https://www.festi.info/boxes.
 Your settings will depend on the thickness of your wood.[^11]
 
 We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts for the components and for the etching.
-Our final version can be found in the [schematics directory](https://github.com/uq-flor-pro/mopidy-florence-player/tree/main/schematics) of the repository.
+Our final version can be found in the [schematics directory](https://github.com/uq-flor-pro/florence-player/tree/main/schematics) of the repository.
 
 ### Software
 For this project we use <a href="https://mopidy.com/">Mopidy</a> and based our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
@@ -295,12 +295,13 @@ mkdir -p /home/pi/music/webuploads
 chmod og+rw -R /home/pi/music/webuploads
 ```
 
-Install our modified player code. TODO confirm working
+Install our modified player code
 ``` bash
-sudo cd /usr/src
-sudo git clone https://github.com/uq-flor-pro/mopidy-florence-player.git
-cd mopidy-florence-player
-sudo python setup.py install
+sudo su -
+cd /usr/src
+git clone https://github.com/uq-flor-pro/florence-player.git
+cd florence-player
+python setup.py install
 ```
 
 Enable Mopidy to run at boot:
@@ -535,6 +536,8 @@ When connected using wifi and performing updates or transferring files using ```
 [This link](https://forums.raspberrypi.com/viewtopic.php?p=1670096&hilit=transfer+disconnects#p1670096) seems to refer to the issue.
 Throttling the connection using wondershaper didn't seem to help.
 This only happened over wifi.
+We ended up using a usb wireless adapter instead of the inbuild wifi.
+See [this github issue](https://github.com/uq-flor-pro/florence-player/issues/1) for more information.m
 
 [^1]: In building our prototype we had to do this a few times and still didn't get it perfect. However we think it's worth doing as it makes the final version much cleaner and easier to work with.
 
