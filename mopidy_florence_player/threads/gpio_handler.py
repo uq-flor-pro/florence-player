@@ -26,12 +26,12 @@ class GPIOHandler(Thread):
     '''
     button_pins = {
         16: Play,
-        13: Pause,
-        23: NextTrack,
-        20: PlayStationOne,
-        6: PlayStationTwo,
-        5: PlayStationThree,
-        22: PlayStationFour,
+        20: Pause,
+        6: NextTrack,
+        5: PlayStationOne,
+        22: PlayStationTwo,
+        13: PlayStationThree,
+        23: PlayStationFour,
     }
 
     def __init__(self, core, stop_event):
@@ -90,7 +90,7 @@ class GPIOHandler(Thread):
         before = self.timestamps[pin]
 
         if (GPIO.input(pin) == GPIO.LOW) and (now - before > 0.25):
-            LOGGER.debug('Button at pin %s was pushed', pin)
+            LOGGER.info('Button at pin %s was pushed', pin)
             play_sound('success.wav')
             self.button_pins[pin].execute(self.core)
             self.timestamps[pin] = now

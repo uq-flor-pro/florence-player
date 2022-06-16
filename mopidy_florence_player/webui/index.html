@@ -11,6 +11,9 @@
 <body>
 <header>
     <h1>Florence Player Station Management</h1>
+    <p>
+        On this page you can assign tracklists/internet radio stations to station switches, and upload audio to the player.
+    </p>
 </header>
 <main>
     <div id="register-stations">
@@ -56,30 +59,36 @@
         </div>
     </div>
     <hr>
-    <div id="draganddrop" style="width: 30%">
-        <h2>Send audio to Florence</h2>
-        <form hidden enctype="multipart/form-data" action="/florence/upload/dnd" method="post">
+    <div>
+        <div id="draganddrop">
+        <h2>Send multiple files to Florence Player</h2>
+        <hr>
+            <p>Drag and drop multiple songs (mp3, wav, flac) or zip archives of songs to this zone.</p>
+            <form hidden enctype="multipart/form-data" action="/florence/upload/dnd" method="post">
 
-        </form>
-        <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
-            <p>Drag one or more files to this Drop Zone ...</p>
+            </form>
+            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
+                <p>Drag one or more files to this Drop Zone ...</p>
+            </div>
+            <div>
+                <h3>Clicking send will send the following files to Florence Player:</h3>
+                <ul id="filelist">
+                    Nothing yet.
+                </ul>
+                <button class="submit" onclick="sendFiles()" id="sendfiles">✓ Send Files</button>
+            </div>
         </div>
-        <div>
-            <h3>Clicking send will send the following files to Florence Player:</h3>
-            <ul id="filelist">
-                Nothing yet.
-            </ul>
-            <button class="submit" onclick="sendFiles()" id="sendfiles">✓ Send Files</button>
-        </div>
-    </div>
-        <div id="uploadfile">
-            <h2>Upload a file to Florence Player</h2>
+        <br>
+        <h2>Upload a single file to Florence Player</h2>
+        <hr>
+        <div id="uploadfile" style="margin-top: 5%;">
             <p>Upload a single song (mp3, wav, or flac) or zip file of songs to the Player</p>
             <form enctype="multipart/form-data" action="/florence/upload/file" method="post">
                 <input type="file" name="file1">
                 <button type="submit" class="submit">✓ Upload File</button>
             </form>
         </div>
+    </div>
     <div id="register" style="display: none">
         <h2>Register New Tag</h2>
         <div>

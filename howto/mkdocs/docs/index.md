@@ -161,7 +161,7 @@ We need to install the latest version of the Lite RaspberryPi OS (previously kno
 <a href="https://randomnerdtutorials.com/installing-raspbian-lite-enabling-and-connecting-with-ssh/">This tutorial from Random Nerd Tutorials</a> explains the steps involved to flash the image to a microSD card with wireless credentials and SSH enabled.
 Make sure to change the default password in step 2.9.
 
-Turn on the Pi and check we can see and connect to the Pi without knowing its IP address by running the following command to SSH in:
+Turn on the Pi and check we can see and connect to the Pi without knowing its IP address by running the following command to SSH in. See instructions for Windows [here](https://mediatemple.net/community/products/dv/204404604/connect-to-ssh-using-putty-(windows)).
 ``` bash
 ssh pi@raspberrypi.local 
 ```
@@ -182,6 +182,7 @@ From there install avahi-daemon as shown in <a href="https://www.howtogeek.com/1
 From now on we can access our Pi via this address rather than the IP address.
 This will be useful to access the station management backend from different devices[^15].
 
+
 ### Update the OS
 
 First we check for updates and install any
@@ -190,7 +191,7 @@ sudo apt update
 sudo apt upgrade
 ```
 !!! warning
-    Practise good security by keeping your Pi operating system up-to-date by regularly checking for updates, changing the default password, and exercising caution when running scripts and commands from untrsuted sources.
+    Practise good security by keeping your Pi operating system up-to-date by regularly checking for updates, changing the default password, and exercising caution when running scripts and commands from untrusted sources.
    
 ### Set up speakers
 
@@ -251,7 +252,11 @@ We add heatshrink to each to help prevent against short-circuits occuring. First
 
 !!! important
     Unfortunately, Spotify integration is currently not working due to Spotify deprecating the API libspotify communicates with. [This issue](https://github.com/mopidy/mopidy-spotify/issues/110) discusses resolving this situation.
-
+    
+Install espeak which will read the IP address using text to speech
+``` bash
+sudo apt install espeak
+```
 Install pip for Python package management, and the requirements for the Spotify extension
 ``` bash
 git python3-pip libSpotify12 python3-Spotify
@@ -329,6 +334,9 @@ sudo reboot
 
 The web-server on the player is accessible via port 6680. 
 Navigating to [http://raspberrypi.local:6680](http://raspberrypi.local:6680) with a browser on the same network will hopefully show the Mopidy page with links to Iris, Florence and Local.
+Unfortunately acessing `raspberrypi.local` <a href="https://raspberrypi.stackexchange.com/questions/91154/raspberry-pis-local-hostname-doesnt-work-on-android-phones">does not work</a> on Android phones in which case we need the IP address to access this configuration file.
+To have the player read this address press play and pause at the same time.
+Then access the configuration page at that ip address: [http://192.168.xxx.xxx:6680](http://192.168.x.xxx:6680).
 <figure markdown>
 ![](assets/mopidy_page.png)
 <figcaption>The Mopidy homepage</figurecaption>
@@ -457,6 +465,41 @@ TODO
 - smarthome integration via mqtt or other
 - it would be nice to have an easy way to update the player when convenient without having to ssh in
 -->
+
+### Configure the switches
+Watch the logs with:
+```bash
+sudo journalctl -fe
+```
+This command will continue running until we press Ctrl-C to interrupt it.
+
+One by one we press the switches making note of which GPIO pin is reported to be attached in the logs.
+We are looking for a line like:
+```bash
+INFO     [Dummy-19] mopidy_florence_player.threads.gpio_handler Button at pin 20 was pushed
+```
+This means the functionality will need to be assigned to pin 20.
+In `mopidy_florence_player/threads/gpio_handler.py` we set up the `button_pins` dictionary with the values we got. Eg,
+```python 
+button_pins = {
+    16: Play,
+    13: Pause,
+    23: NextTrack,
+    20: PlayStationOne,
+    6: PlayStationTwo,
+    5: PlayStationThree,
+    22: PlayStationFour,
+}
+```
+The dictionary you use will depend on the order the switches were placed.
+
+### Upload some audio and set up some stations
+Navigate to `raspberrypi.local:6680/florence/` (or use the IP address if that address doesn't work).
+Here we can upload mp3, wav, or flac format songs, or alternatively a zip file of songs.
+From these audio we can make a tracklist and assign it to a station switch.
+
+We can also assign internet radio stations to the station switches.
+[See here](https://help.abc.net.au/hc/en-us/articles/4402927208079-Where-can-I-find-direct-stream-URLs-for-ABC-Radio-stations-) for a list of ABC streams.
 
 ## Future Work
 One downside with the Raspberry Pi is that it can take upwards of 30 seconds for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.

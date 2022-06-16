@@ -7,6 +7,7 @@ __all__ = (
 )
 
 from os import path, system
+import subprocess
 
 
 def play_sound(sound):
@@ -16,5 +17,6 @@ def play_sound(sound):
     :param str sound: The name of the sound file
     '''
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
-    # play at 50% volume
-    system('mplayer -volume 50  -softvol {} &> /dev/null'.format(file_path))
+    subprocess.run(['amixer', 'set', 'PCM', '50%'])
+    subprocess.run(['aplay', file_path])
+    subprocess.run(['amixer', 'set', 'PCM', '100%'])

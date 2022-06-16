@@ -52,7 +52,7 @@ header
 
 main > div
 {
-    padding: 20px;
+    padding: 10px;
 }
 
 /*
@@ -227,7 +227,10 @@ div.tag span.parameter
 
 /* File upload responsive */
 #uploadfile {
-    display: none;
+    display: block;
+}
+
+#draganddrop {
 }
 
 main {
@@ -237,6 +240,7 @@ main {
 @media only screen and (max-width: 900px) {
     #uploadfile {
         display: block;
+        border: 0px solid black;
     }
     #draganddrop {
         display: none;
