@@ -19,4 +19,4 @@ def play_sound(sound):
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
     subprocess.run(['amixer', 'set', 'PCM', '50%'])
     subprocess.run(['aplay', file_path])
-    subprocess.run(['amixer', 'set', 'PCM', '100%'])
+    subprocess.run(['amixer', 'set', 'PCM', '85%'])

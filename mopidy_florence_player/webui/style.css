@@ -226,7 +226,7 @@ div.tag span.parameter
 }
 
 /* File upload responsive */
-#uploadfile {
+#uploadfiles {
     display: block;
 }
 
@@ -238,7 +238,7 @@ main {
 }
 
 @media only screen and (max-width: 900px) {
-    #uploadfile {
+    #uploadfiles {
         display: block;
         border: 0px solid black;
     }

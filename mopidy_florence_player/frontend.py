@@ -8,6 +8,7 @@ __all__ = (
 
 from threading import Event
 from logging import getLogger
+import subprocess
 
 import pykka
 from mopidy import core as mopidy_core
@@ -28,6 +29,7 @@ class FlorencePlayerFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
     def __init__(self, config, core):  # pylint: disable=unused-argument
         super().__init__()
         self.core         = core
+        subprocess.run(['amixer', 'set', 'PCM', '85%'])
         self.stop_event   = Event()
         self.gpio_handler = GPIOHandler(core=core, stop_event=self.stop_event)
         # self.tag_reader   = TagReader(core=core, stop_event=self.stop_event)

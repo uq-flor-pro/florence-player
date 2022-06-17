@@ -61,12 +61,10 @@
     <hr>
     <div>
         <div id="draganddrop">
-        <h2>Send multiple files to Florence Player</h2>
+        <h2>Drag and drop multiple files to Florence Player</h2>
         <hr>
+            <em>(max 100Mb each file)</em>
             <p>Drag and drop multiple songs (mp3, wav, flac) or zip archives of songs to this zone.</p>
-            <form hidden enctype="multipart/form-data" action="/florence/upload/dnd" method="post">
-
-            </form>
             <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
                 <p>Drag one or more files to this Drop Zone ...</p>
             </div>
@@ -75,18 +73,17 @@
                 <ul id="filelist">
                     Nothing yet.
                 </ul>
-                <button class="submit" onclick="sendFiles()" id="sendfiles">✓ Send Files</button>
+                <button class="submit" onclick="sendFiles()" id="draganddropsend">✓ Send Files</button>
             </div>
         </div>
         <br>
-        <h2>Upload a single file to Florence Player</h2>
+        <h2>Upload files to Florence Player</h2>
         <hr>
-        <div id="uploadfile" style="margin-top: 5%;">
-            <p>Upload a single song (mp3, wav, or flac) or zip file of songs to the Player</p>
-            <form enctype="multipart/form-data" action="/florence/upload/file" method="post">
-                <input type="file" name="file1">
-                <button type="submit" class="submit">✓ Upload File</button>
-            </form>
+        <div id="uploadfiles" style="margin-top: 2%;">
+            <em>(max 100Mb each file)</em>
+            <p>Upload songs (mp3, wav, or flac) or zip files of songs to the Player.</p>
+                <input id="filesInput" multiple type="file" name="file1">
+                <button id="inputsend" onclick="sendFromInput()" type="submit" class="submit">✓ Send Files</button>
         </div>
     </div>
     <div id="register" style="display: none">

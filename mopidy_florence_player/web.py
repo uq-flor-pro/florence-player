@@ -239,6 +239,7 @@ class ActionClassesHandler(RequestHandler):  # pylint: disable=abstract-method
 
 class UploadFile(RequestHandler):
     def post(self):
+        self.request.connection.set_max_body_size(500000000)
         file1 = self.request.files['file1'][0]
         original_fname = file1['filename']
         ext = os.path.splitext(original_fname)[1]
@@ -249,10 +250,10 @@ class UploadFile(RequestHandler):
             output_file.write(file1['body'])
             LOGGER.info('Successfully added new music')
         elif ext == ".zip":
-            output_file = open("/tmp" + original_fname, 'wb')
+            output_file = open("/tmp/" + original_fname, 'wb')
             output_file.write(file1['body'])
 
-            subprocess.run(["unzip", "-d", "/home/pi/music/webuploads/", "/tmp" + original_fname, ])
+            subprocess.run(["unzip", "-d", "/home/pi/music/webuploads/", "/tmp/" + original_fname, ])
             LOGGER.info('Successfully added new music')
         else:
             LOGGER.info('No valid file found')

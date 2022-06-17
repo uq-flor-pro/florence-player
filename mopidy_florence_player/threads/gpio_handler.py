@@ -10,6 +10,8 @@ from threading import Thread
 from logging import getLogger
 from time import time, sleep
 
+from os import system
+
 import RPi.GPIO as GPIO
 
 from mopidy_florence_player.actions import Play, Pause, NextTrack, Shutdown
@@ -33,6 +35,8 @@ class GPIOHandler(Thread):
         13: PlayStationThree,
         23: PlayStationFour,
     }
+
+    espeak_pins = (16, 20)
 
     def __init__(self, core, stop_event):
         '''
@@ -69,6 +73,7 @@ class GPIOHandler(Thread):
                     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
                     GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
                     LOGGER.info('Setup pin %s as button pin', pin)
+                    failure = 0
                 except Exception as ex:
                     sleep(1)
                     LOGGER.info(str(ex))
@@ -90,7 +95,16 @@ class GPIOHandler(Thread):
         before = self.timestamps[pin]
 
         if (GPIO.input(pin) == GPIO.LOW) and (now - before > 0.25):
-            LOGGER.info('Button at pin %s was pushed', pin)
-            play_sound('success.wav')
-            self.button_pins[pin].execute(self.core)
-            self.timestamps[pin] = now
+            try:
+                index = self.espeak_pins.index(pin)
+                if index == 0 and GPIO.input(self.espeak_pins[1]) == GPIO.LOW or index == 1 and\
+                        GPIO.input(self.espeak_pins[0]) == GPIO.LOW:
+                    LOGGER.info('Both espeak switches pressed. Reading IP address.')
+                    system("hostname -I | espeak")
+                else:
+                    raise ValueError
+            except ValueError:
+                LOGGER.info('Button at pin %s was pushed', pin)
+                play_sound('success.wav')
+                self.button_pins[pin].execute(self.core)
+                self.timestamps[pin] = now

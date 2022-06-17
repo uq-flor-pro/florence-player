@@ -14,10 +14,10 @@ hide:
 </figure>
 ## Aim
 The Florence Project aimed to create a music player that people with dementia would find simple to use and be suitable for Men's Sheds to construct. 
-The player would have a backend accessible by web browser over the local network to easily assign playlists or internet radio streams to station buttons, allowing people living with dementia and their care partners to easily individualise the music and content.
+The player would have a backend accessible by web browser over the local network to easily assign playlists or internet radio streams to station buttons, allowing people living with dementia and their families and care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
-We wanted the potential to connect to a smart-home system down the track and to have the option to capture data about how and when the player was being used.
-We would prioritise free and open source software, and hardware, and release our modifications under such a licence.
+We wanted the potential to connect to a smart-home system later and to have the option to collect data about how and when the player was being used.
+We would prioritise free and open source software and hardware, and release our modifications under such a licence.
 
 ## Rationale
 
@@ -107,7 +107,7 @@ We then used <a href="https://inkscape.org">Inkscape</a> to add in the cutouts f
 Our final version can be found in the [schematics directory](https://github.com/uq-flor-pro/florence-player/tree/main/schematics) of the repository.
 
 ### Software
-For this project we use <a href="https://mopidy.com/">Mopidy</a> and based our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
+For this project we use <a href="https://mopidy.com/">Mopidy</a> and base our player code on the <a href="https://github.com/confirm/mopidy-pummeluff">Mopidy Pummeluff</a> extension.
 Mopidy is an extensible music server written in Python and Mopidy Pummeluff is an extension for playing music by reading identification data from RFID tags.
 We chose Mopidy Pummeluff as it had a number of features:
 
@@ -153,7 +153,7 @@ We added a separate module containing a Station class and four subclasses repres
 ## Build
 
 ### Assemble Speaker Bonnet
-We first assemble the speaker Bonnet <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/assembly">as per Adafruit's instructions</a>. This involves soldering the headers and speaker terminal blocks.
+Assemble the speaker Bonnet <a href="https://learn.adafruit.com/adafruit-speaker-bonnet-for-raspberry-pi/assembly">as per Adafruit's instructions</a>. This involves soldering the headers and speaker terminal blocks.
 
 ### RaspberryPi OS
 
@@ -185,7 +185,7 @@ This will be useful to access the station management backend from different devi
 
 ### Update the OS
 
-First we check for updates and install any
+Check for updates and install any
 ``` bash
 sudo apt update
 sudo apt upgrade
@@ -221,7 +221,7 @@ The installer will offer to test the speakers. If this test isn't successful, ch
 Next we build the player on a breadboard and check everything works.
 
 #### Tin the components
-We first tin the switches, the LED pins, and the potentiometer (including on/off switch) to make them easier to solder.
+Tin the switches, the LED pins, and the potentiometer (including on/off switch) to make them easier to solder.
 To tin the switches, we heat up the the normally open (NO) tabs of the switches and touch the solder to the heated component to flow some solder on, then do the same for the common (C) tab.[^7]
 To tin the LED, the potentiometer, and the on/off switch we heat the wire and touch the solder to the heated wires to flow solder on.
 The potentiometer pins we use are the first three (shown in red in the next diagram) and the on/off switch (shown in blue) are the pair of pins at the end.
@@ -292,10 +292,10 @@ sudo nano /etc/mopidy/mopidy.conf
 Create the folder for webuploads, and give all users the right to read and write.
 ``` bash
 mkdir -p /home/pi/music/webuploads
-chmod og+rw -R /home/pi/music/webuploads
+chmod a+rw -R /home/pi/music/webuploads
 ```
 
-Install our modified player code
+Install our modified player code (be aware after running the first command you will be in a root shell. To exit press ctrl-d.)
 ``` bash
 sudo su -
 cd /usr/src
@@ -337,12 +337,12 @@ The web-server on the player is accessible via port 6680.
 Navigating to [http://raspberrypi.local:6680](http://raspberrypi.local:6680) with a browser on the same network will hopefully show the Mopidy page with links to Iris, Florence and Local.
 Unfortunately acessing `raspberrypi.local` <a href="https://raspberrypi.stackexchange.com/questions/91154/raspberry-pis-local-hostname-doesnt-work-on-android-phones">does not work</a> on Android phones in which case we need the IP address to access this configuration file.
 To have the player read this address press play and pause at the same time.
-Then access the configuration page at that ip address: [http://192.168.xxx.xxx:6680](http://192.168.x.xxx:6680).
+Then access the configuration page at that IP address: [http://192.168.xxx.xxx:6680](http://192.168.x.xxx:6680).
 <figure markdown>
 ![](assets/mopidy_page.png)
 <figcaption>The Mopidy homepage</figurecaption>
 </figure>
-From here we can create playlists with Iris, and assign playlists to stations with Florence.
+From here we can create playlists with Iris and assign playlists to stations with Florence.
 
 ### Stripboard build
 Once we've confirmed everything works with a breadboard, it's time to construct on the stripboard.
@@ -352,7 +352,7 @@ Once we've confirmed everything works with a breadboard, it's time to construct 
 </figure>
 
 - Break the header pins into two 7 length pieces
-- Quickly but carefully solder the switch wires to the header pins making sure the order on both is the same. We messed up twice but were happy with the third result. If this proves difficult, skip the headers and mount the wire into the sockets directly.[^5]
+- Quickly but carefully solder the switch wires to the header pins making sure the order on both is the same. We messed up twice but were happy with the third result. If this proves too difficult, skip the headers and mount the wire into the sockets directly.[^5]
 
 
 <figure markdown>
@@ -369,13 +369,16 @@ Once we've confirmed everything works with a breadboard, it's time to construct 
 - Cut header sockets into 8, 8, 7, 7, 7, 6, 4, 1, 1 lengths by counting out the number of sockets needed then removing the next pin with pliers, then cut the header sockets at the extracted pin[^4]
 - Break the 15 highlighted strips on the stripboad: the 7 length section for the station switches and 8 length section for the MCP3008. These are the gaps in the channels in the following schematic. We did this by carefully cutting with a craft knife but there are other methods[^12]
 
+
 <figure markdown>
 ![](assets/./player_stripboard_no_components_hl.png){ width="450"}
 <figcaption>The 15 strips to cut</figcaption>
 </figure>
    
+   
 - Solder the components one by one
 - Cut wire to length and solder it
+
 
 <figure markdown>
 ![Top view of the stripboard with the MCP3008 mounted](assets/./stripboard_top.jpg "Top view of the stripboard with the MCP3008 mounted"){ width="450"}
@@ -387,6 +390,7 @@ Once we've confirmed everything works with a breadboard, it's time to construct 
 ![](assets/./stripboard_reverse.jpg "Image not found: ./stripboard_reverse.jpg"){ width="450"}
 <figcaption>Rear view (mirrored left-right)</figcaption>
 </figure>
+
 
 - Check the connections[^3]
 
@@ -502,8 +506,6 @@ From these audio we can make a tracklist and assign it to a station switch.
 We can also assign internet radio stations to the station switches.
 [See here](https://help.abc.net.au/hc/en-us/articles/4402927208079-Where-can-I-find-direct-stream-URLs-for-ABC-Radio-stations-) for a list of ABC streams.
 
-## Future Work
-One downside with the Raspberry Pi is that it can take upwards of 30 seconds for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
 
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
@@ -537,7 +539,11 @@ When connected using wifi and performing updates or transferring files using ```
 Throttling the connection using wondershaper didn't seem to help.
 This only happened over wifi.
 We ended up using a usb wireless adapter instead of the inbuild wifi.
-See [this github issue](https://github.com/uq-flor-pro/florence-player/issues/1) for more information.m
+See [this github issue](https://github.com/uq-flor-pro/florence-player/issues/1) for more information.
+
+
+## Future Work
+One downside with the Raspberry Pi is that it can take upwards of 30 seconds for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
 
 [^1]: In building our prototype we had to do this a few times and still didn't get it perfect. However we think it's worth doing as it makes the final version much cleaner and easier to work with.
 

@@ -280,7 +280,7 @@ function dropHandler(ev) {
 }
 
 async function sendFiles() {
-    document.querySelector("#sendfiles").innerHTML = "Sending..."
+    document.querySelector("#draganddropsend").innerHTML = "Sending... please wait."
     for (var f of filelist) {
         try {
             let result = await uploadFile(f);
@@ -292,8 +292,8 @@ async function sendFiles() {
     // reset interface
     filelist = []
     document.querySelector("#filelist").innerHTML = "Nothing yet."
-    document.querySelector("#sendfiles").innerHTML = "✓ Send Files"
-    alert('Files successfully uploaded')
+    document.querySelector("#draganddropsend").innerHTML = "✓ Send Files"
+    alert('File(s) successfully uploaded')
 }
 
 // https://stackoverflow.com/questions/48969495/in-javascript-how-do-i-should-i-use-async-await-with-xmlhttprequest
@@ -313,6 +313,22 @@ function uploadFile(file) {
         formData.append('file1', file)
         xhr.send(formData)
     });
+}
+
+async function sendFromInput() {
+    document.querySelector("#inputsend").innerHTML = "Sending... please wait."
+    for (var file of document.querySelector("#filesInput").files) {
+        try {
+            let result = await uploadFile(file);
+        } catch {
+            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip.")
+            return
+        }
+    }
+    // reset interface
+    document.querySelector("#filesInput").value = null
+    document.querySelector("#inputsend").innerHTML = "✓ Send Files"
+    alert('File(s) successfully uploaded')
 }
 
 /* start */
