@@ -17,6 +17,8 @@ def play_sound(sound):
     :param str sound: The name of the sound file
     '''
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
+    # set volume 50%
     subprocess.run(['amixer', 'set', 'PCM', '50%'])
     subprocess.run(['aplay', file_path])
+    # set volume 85%
     subprocess.run(['amixer', 'set', 'PCM', '85%'])

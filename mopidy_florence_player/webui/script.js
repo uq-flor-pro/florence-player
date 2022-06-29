@@ -197,46 +197,11 @@ class API {
 function handle_station_response(s1, s2, s3, s4) {
     var station_1_class, station_2_class, station_3_class, station_4_class
 
-    switch (s1) {
-        case true: {
-            station_1_class = "success"
-            break
-        }
-        case "error": {
-            station_1_class = "error"
-            break
-        }
-    }
-    switch (s2) {
-        case true: {
-            station_2_class = "success"
-            break
-        }
-        case "error": {
-            station_2_class = "error"
-            break
-        }
-    }
-    switch (s3) {
-        case true: {
-            station_3_class = "success"
-            break
-        }
-        case "error": {
-            station_3_class = "error"
-            break
-        }
-    }
-    switch (s4) {
-        case true: {
-            station_4_class = "success"
-            break
-        }
-        case "error": {
-            station_4_class = "error"
-            break
-        }
-    }
+    s1 === true ? station_1_class = "success" : station_1_class = s1
+    s2 === true ? station_2_class = "success" : station_2_class = s2
+    s3 === true ? station_3_class = "success" : station_3_class = s3
+    s4 === true ? station_4_class = "success" : station_4_class = s4
+
     document.querySelector("#station_1").className = station_1_class
     document.querySelector("#station_2").className = station_2_class
     document.querySelector("#station_3").className = station_3_class
@@ -285,8 +250,8 @@ async function sendFiles() {
         try {
             let result = await uploadFile(f);
         } catch {
-            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip.")
-            return
+            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip, and maximum size is 100Mb.")
+            break
         }
     }
     // reset interface
@@ -321,8 +286,8 @@ async function sendFromInput() {
         try {
             let result = await uploadFile(file);
         } catch {
-            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip.")
-            return
+            alert("One or more files failed to upload. Valid filetypes are mp3, wav, flac and zip, and maximum size is 100Mb.")
+            break
         }
     }
     // reset interface

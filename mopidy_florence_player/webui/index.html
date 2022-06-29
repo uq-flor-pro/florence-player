@@ -13,6 +13,8 @@
     <h1>Florence Player Station Management</h1>
     <p>
         On this page you can assign tracklists/internet radio stations to station switches, and upload audio to the player.
+        For suggestions and inspiration in creating a playlist see <a href="https://www.playlistforlife.org.uk/">Playlist for Life</a> and
+        <a href="https://musicmemories.bbcrewind.co.uk/">BBC's Music Memories</a>.
     </p>
 </header>
 <main>
@@ -20,7 +22,7 @@
         <h2>Register Station(s)</h2>
         <hr>
         <div>
-            <form id="register-stations-form">
+            <form id="register-stations-form" class="equal">
                 <p>
                     Here you can register a tracklist to play when a station button is pressed.
                     Name each station with an alias and store the tracklist to play.
@@ -58,32 +60,30 @@
             </form>
         </div>
     </div>
-    <hr>
-    <div>
-        <div id="draganddrop">
+    <div id="draganddrop" class="equal">
         <h2>Drag and drop multiple files to Florence Player</h2>
         <hr>
-            <em>(max 100Mb each file)</em>
-            <p>Drag and drop multiple songs (mp3, wav, flac) or zip archives of songs to this zone.</p>
-            <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
-                <p>Drag one or more files to this Drop Zone ...</p>
-            </div>
-            <div>
-                <h3>Clicking send will send the following files to Florence Player:</h3>
-                <ul id="filelist">
-                    Nothing yet.
-                </ul>
-                <button class="submit" onclick="sendFiles()" id="draganddropsend">✓ Send Files</button>
-            </div>
+        <em>(max 100Mb each file)</em>
+        <p>Drag and drop multiple songs (mp3, wav, flac) or zip archives of songs to this zone.</p>
+        <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" style="width: 100%; height: 20vh; padding: 2%">
+            <p>Drag one or more files to this Drop Zone ...</p>
         </div>
-        <br>
+        <div>
+            <h3>Clicking send will send the following files to Florence Player:</h3>
+            <ul id="filelist">
+                Nothing yet.
+            </ul>
+            <button class="submit" onclick="sendFiles()" id="draganddropsend">✓ Send Files</button>
+        </div>
+    </div>
+    <div class="equal">
         <h2>Upload files to Florence Player</h2>
         <hr>
         <div id="uploadfiles" style="margin-top: 2%;">
             <em>(max 100Mb each file)</em>
             <p>Upload songs (mp3, wav, or flac) or zip files of songs to the Player.</p>
-                <input id="filesInput" multiple type="file" name="file1">
-                <button id="inputsend" onclick="sendFromInput()" type="submit" class="submit">✓ Send Files</button>
+            <input id="filesInput" multiple type="file" name="file1">
+            <button id="inputsend" onclick="sendFromInput()" type="submit" class="submit">✓ Send Files</button>
         </div>
     </div>
     <div id="register" style="display: none">

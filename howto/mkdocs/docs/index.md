@@ -13,25 +13,26 @@ hide:
 <figcaption>The finished player TODO</figcaption>
 </figure>
 ## Aim
-The Florence Project aimed to create a music player that people with dementia would find simple to use and be suitable for Men's Sheds to construct. 
-The player would have a backend accessible by web browser over the local network to easily assign playlists or internet radio streams to station buttons, allowing people living with dementia and their families and care partners to easily individualise the music and content.
+We aimed to create a music player that people with dementia would find simple to use and that would be suitable for families or Men's Sheds to construct. 
+The player would have a backend accessible by web browser over the local network to easily assign playlists or internet radio streams to station buttons.
+This would allow people living with dementia and their families and care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
 We wanted the potential to connect to a smart-home system later and to have the option to collect data about how and when the player was being used.
 We would prioritise free and open source software and hardware, and release our modifications under such a licence.
 
 ## Rationale
 
-[In a systematic review ](https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajag.12642)of 4 studies on the effects of individualised music listening, Gariola et al concluded that the evidence, though limited, suggested positive impacts on agitation, anxiety, depression, and emotion. The authors also noted that the outcomes were favourable compared to more resource-intensive interventions.
+[In a systematic review ](https://onlinelibrary.wiley.com/doi/epdf/10.1111/ajag.12642)of 4 studies on the effects of individualised music listening, Gaviola et al concluded that the evidence, though limited, suggested positive impacts on agitation, anxiety, depression, and emotion. The authors also noted that the outcomes were favourable compared to more resource-intensive interventions.
 
-However, beyond these aspects [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
-> People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
+However, beyond these measurable aspects, [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
+>People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
 
-In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a preprogrammed station and affords the choice of three others programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
+In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a pre-programmed station and affords the choice of three others that are programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
 
 ## Inspiration
 
 While designing our radio we were inspired and influenced by a number of other projects.
-We loved, and incorporated, the personalisation options of <a href="https://homelifetech.com.au/products/relish-radio">The Relish Radio</a>, the simplicity of the <a href="https://designability.org.uk/projects/products/simple-music-player/">Simple Music Player</a>, and the DIY nature of the <a href="https://hackaday.io/project/26096-dementia-friendly-music-player">Dementia-friendly music player</a>.
+We loved, and incorporated, the personalisation options of <a href="https://homelifetech.com.au/products/relish-radio">The Relish Radio</a>, the simplicity of the <a href="https://designability.org.uk/projects/products/simple-music-player/">Simple Music Player</a>, and the DIY nature of the <a href="https://hackaday.io/project/26096-dementia-friendly-music-player">Dementia-Friendly Music Player</a>.
 
 ## Notice
 Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #legal TODO
@@ -84,7 +85,7 @@ Our first version was a 3D printed case with a single affordance: a clicky on/of
 </figure>
 In this version we wanted to include more options, especially the ability to skip tracks.
 However, since dementia is a progressive illness and over time someone with dementia might find it too difficult to use certain features that they could previously, we also wanted the case to be able to simplify over time.
-We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing they could be removed and this wood piece secured on top of the etching and switch holes.
+We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing the switches could be removed and this wood piece secured on top of the etching and switch holes.
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
 This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
 
@@ -125,11 +126,11 @@ We tried to get the RFID and ADC both working simultaneously with one using hard
 
 ##### Registry
 
-Rather than create a new registry format for stations, we decided it would be better to modify the RFID tag format to allow for the stations. To keep RFID tags a possibility later, we modified the registry slightly so that a tag would by default be considered an RFID tag, but if this argument was false it would be handled as a station instead. This meant the Pummeluff web page and tornado web backend could also be modified rather simply.
+Rather than create a new registry format for stations, we decided it would be better to modify the RFID tag format to allow for the stations. To keep RFID tags a possibility later, we modified the registry slightly so that a tag would by default be considered an RFID tag, but if this argument was false it would be handled as a station instead. This meant the Pummeluff web page and Tornado web backend could also be modified rather simply.
 
 ##### Web interface
 
-To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases. Aliases are convenient names for naming stations. 
+To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases, where aliases are convenient names for naming stations. 
 <figure markdown>
 ![](./assets/add_station_view.png){ width="450"}
     <figcaption>The form for assigning a tracklist to station 1</figcaption>
@@ -197,7 +198,7 @@ sudo apt upgrade
 
 In this step we wire up the speakers and connect them to the terminal blocks of the Bonnet.
 
-1. Cut the stranded wire to length #todo check length
+1. Cut the stranded wire to length to about 20cm
 2. Strip all the ends of the wires
 3. Twist and tin each end
 4. Solder one end to the speakers as in the video
@@ -207,13 +208,13 @@ The first half of [this video](assets/https://www.youtube.com/watch?v=8UXloSxQlE
     
 ### Install Speaker Bonnet 
 
-In our experience installing the Speaker Bonnet needs to be done early on to avoid issues later on.
+In our experience installing the Speaker Bonnet needs to be performed early to avoid issues later on.
 The instructions are <a href="https://learn.adafruit.com/adafruit-speaker-Bonnet-for-raspberry-pi/raspberry-pi-usage">on the Adafruit website</a>.
 If you see a big red warning on that page regarding the Full version don't panic, we are using the Lite version of the RaspberryPi OS.
 
 The installer will offer to test the speakers. If this test isn't successful, check the soldering of the Bonnet, or of the speaker, or reinstall the Bonnet software.
 
-### Prototyping
+### Breadboarding
 <figure markdown>
 ![](assets/./player_breadboard.png){ width="450"}
 <figcaption>The breadboard schematic</figcaption>
@@ -222,7 +223,7 @@ Next we build the player on a breadboard and check everything works.
 
 #### Tin the components
 Tin the switches, the LED pins, and the potentiometer (including on/off switch) to make them easier to solder.
-To tin the switches, we heat up the the normally open (NO) tabs of the switches and touch the solder to the heated component to flow some solder on, then do the same for the common (C) tab.[^7]
+To tin the switches, we heat up the normally open (NO) tabs of the switches and touch the solder to the heated component to flow some solder on, then do the same for the common (C) tab.[^7]
 To tin the LED, the potentiometer, and the on/off switch we heat the wire and touch the solder to the heated wires to flow solder on.
 The potentiometer pins we use are the first three (shown in red in the next diagram) and the on/off switch (shown in blue) are the pair of pins at the end.
 <figure markdown>
@@ -499,21 +500,27 @@ button_pins = {
 The dictionary you use will depend on the order the switches were placed.
 
 ### Upload some audio and set up some stations
-Navigate to `raspberrypi.local:6680/florence/` (or use the IP address if that address doesn't work).
+Navigate to `raspberrypi.local:6680/florence/` (or use the IP address if that URL doesn't work).
 Here we can upload mp3, wav, or flac format songs, or alternatively a zip file of songs.
 From these audio we can make a tracklist and assign it to a station switch.
 
 We can also assign internet radio stations to the station switches.
 [See here](https://help.abc.net.au/hc/en-us/articles/4402927208079-Where-can-I-find-direct-stream-URLs-for-ABC-Radio-stations-) for a list of ABC streams.
 
+#### Creating a playlist
+[Playlist for life](https://www.playlistforlife.org.uk/) has some tips and potential pitfalls in creating playlists for/with people living with dementia.
+[BBC Music Memories](https://musicmemories.bbcrewind.co.uk/home) has some ideas for songs based on type (popular, theme-song, classical, UK Nations, international, social), genre, and era.
+
+## Future Work
+One downside with the Raspberry Pi is that it can take upwards of 30 seconds, and sometimes a minute, for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
 
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
 
 ### The corners of the player are sharp
-Maybe a bit dangerous for some people.
+And maybe a bit dangerous for some people.
 
-### Stealing the Speaker Bonnet's I2S pin to use as a station switch
+### Stealing one of the Speaker Bonnet's I2S pin to use as a station switch
 We were wondering why audio was working without the extension but not when it was running, and the gstreamer output worked but the player didn't.
 It turned out that one of the station pins had been set up to use one of the I2S pins that the Pi uses to communicate with the Speaker Bonnet.
 The Speaker Bonnet exposes this pin even though it's in use by the Bonnet.
@@ -529,8 +536,8 @@ Since we aren't using this the RFID reader at the moment, we have commented out 
 ## Notes
 ### Speaker Bonnet
 
-We had some issues getting the speaker Bonnet set up originally.
-Adafruit's debugging suggestions generally involve reflashing the OS, reinstalling the speaker Bonnet code, and checking soldering which can be frustrating, but the first is one of the reasons we install the speaker so early in the process now: this way if we need to reinstall there's less to do.
+We had some issues getting the Speaker Bonnet set up originally.
+Adafruit's debugging suggestions generally involve reflashing the OS, reinstalling the Speaker Bonnet code, and checking soldering which can be frustrating, but the first is one of the reasons we install the speaker so early in the process now: this way if we need to reinstall there's less to do.
 
 ### Wireless drops out under load
 
@@ -538,12 +545,15 @@ When connected using wifi and performing updates or transferring files using ```
 [This link](https://forums.raspberrypi.com/viewtopic.php?p=1670096&hilit=transfer+disconnects#p1670096) seems to refer to the issue.
 Throttling the connection using wondershaper didn't seem to help.
 This only happened over wifi.
-We ended up using a usb wireless adapter instead of the inbuild wifi.
-See [this github issue](https://github.com/uq-flor-pro/florence-player/issues/1) for more information.
+We ended up using a USB wireless adapter instead of the inbuild wifi adapter.
+See [this Github issue](https://github.com/uq-flor-pro/florence-player/issues/1) on the Florence Player repository for more information.
+
+### Tornado is limited to 100Mb files when uploading
+We tried to increase the `max_body_size` when starting the Tornado HTTPServer in Mopidy.
+Unfortunately sending a 300Mb zip crashed Mopidy as it used too much RAM.
+As a result we leave the 100Mb size restriction in place.
 
 
-## Future Work
-One downside with the Raspberry Pi is that it can take upwards of 30 seconds for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
 
 [^1]: In building our prototype we had to do this a few times and still didn't get it perfect. However we think it's worth doing as it makes the final version much cleaner and easier to work with.
 
@@ -557,7 +567,7 @@ One downside with the Raspberry Pi is that it can take upwards of 30 seconds for
 
 [^8]: <a href="https://www.festi.info/boxes.py/ElectronicsBox?language=en">https://www.festi.info/boxes.py/ElectronicsBox?language=en</a>
 
-[^9]: We originally chose an ADC that used SPI instead of I2C because we wanted to keep GPIO 3 free. This is because pin 3 can be used to start up the Pi from the shutdown state by connecting it to ground. We also want to shut the Pi down using a GPIO signal but didn't realise until later that the pi can be shutdown by other GPIO pina by specifying them in /boot/config.txt. See <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README">this file</a> in the section named gpio-shutdown for details. Since it is possible to specify this other pin for shutdown, using a I2C ADC might work well as it would free up the hardware SPI for the RFID reader.
+[^9]: We originally chose an ADC that used SPI instead of I2C because we wanted to keep GPIO 3 free. This is because pin 3 can be used to start up the Pi from the shutdown state by connecting it to ground. We also want to shut the Pi down using a GPIO signal but didn't realise until later that the Pi can be shutdown by other GPIO pins by specifying them in /boot/config.txt. See <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README">this file</a> in the section named gpio-shutdown for details. Since it is possible to specify this other pin for shutdown, using a I2C ADC might work well as it would free up the hardware SPI for the RFID reader.
 
 [^11]: If you use this generator with a thick Piece of wood and the tabs on the triangles disappear you might need to increase the *triangle* measurement to compensate.
 

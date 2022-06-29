@@ -64,16 +64,16 @@ class GPIOHandler(Thread):
 
         for pin in self.button_pins:
             # sometimes pin doesn't come up, try multiple times before skipping
-            failure = 5
-            while failure > 0:
+            failure_flag = 5
+            while failure_flag > 0:
                 try:
-                    failure -= 1
+                    failure_flag -= 1
                     GPIO.cleanup(pin)
                     LOGGER.info('Setting up pin %s as button pin', pin)
                     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
                     GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
                     LOGGER.info('Setup pin %s as button pin', pin)
-                    failure = 0
+                    failure_flag = 0
                 except Exception as ex:
                     sleep(1)
                     LOGGER.info(str(ex))

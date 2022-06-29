@@ -238,27 +238,39 @@ class ActionClassesHandler(RequestHandler):  # pylint: disable=abstract-method
 
 
 class UploadFile(RequestHandler):
+    '''
+    Handles a file being POSTed. If it's a known audio file store it away, if it's a zip unzip and store it away. Else
+    skip.
+
+    Stores into /home/pi/music/webuploads/.
+    '''
     def post(self):
-        self.request.connection.set_max_body_size(500000000)
+        STORE_DIR = '/home/pi/music/webuploads/'
+
         file1 = self.request.files['file1'][0]
+        LOGGER.info(f'Got request {self.request}')
         original_fname = file1['filename']
         ext = os.path.splitext(original_fname)[1]
+
         LOGGER.info(f'Adding file {original_fname}')
 
         if ext == ".mp3" or ext == ".wav" or ext == ".flac":
-            output_file = open("/home/pi/music/webuploads/" + original_fname, 'wb')
+            output_file = open(STORE_DIR + original_fname, 'wb')
             output_file.write(file1['body'])
             LOGGER.info('Successfully added new music')
+
         elif ext == ".zip":
             output_file = open("/tmp/" + original_fname, 'wb')
             output_file.write(file1['body'])
 
-            subprocess.run(["unzip", "-d", "/home/pi/music/webuploads/", "/tmp/" + original_fname, ])
+            subprocess.run(["unzip", "-d", STORE_DIR, "/tmp/" + original_fname, ])
             LOGGER.info('Successfully added new music')
+
         else:
             LOGGER.info('No valid file found')
             self.set_status(500)
             self.finish("Invalid file found.")
 
         self.finish("Upload successful")
+
     get = post

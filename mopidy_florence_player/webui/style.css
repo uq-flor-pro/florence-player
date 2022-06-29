@@ -256,3 +256,7 @@ main {
     width:  200px;
     height: 100px;
 }
+
+.equal {
+    flex: 1 0 33%;
+}

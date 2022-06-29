@@ -29,9 +29,11 @@ class FlorencePlayerFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
     def __init__(self, config, core):  # pylint: disable=unused-argument
         super().__init__()
         self.core         = core
+        # set volume at 85%
         subprocess.run(['amixer', 'set', 'PCM', '85%'])
         self.stop_event   = Event()
         self.gpio_handler = GPIOHandler(core=core, stop_event=self.stop_event)
+        # turn off tag reader
         # self.tag_reader   = TagReader(core=core, stop_event=self.stop_event)
         self.mcp_watcher  = MCPWatcher(core=core, stop_event=self.stop_event)
 
@@ -42,6 +44,7 @@ class FlorencePlayerFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
 
         GPIO.setmode(GPIO.BCM)
         self.gpio_handler.start()
+        # turn off tag reader
         # self.tag_reader.start()
         self.mcp_watcher.start()
 
