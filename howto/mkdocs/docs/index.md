@@ -9,8 +9,8 @@ hide:
 # Florence Player Build Instructions
 *by the [Florence Project](https://itee.uq.edu.au/florence)*
 <figure markdown>
-![](assets/final.jpg)
-<figcaption>The finished player TODO</figcaption>
+![](assets/in_situ.jpg)
+<figcaption>The Florence Player</figcaption>
 </figure>
 ## Aim
 We aimed to create a music player that people with dementia would find simple to use and that would be suitable for families or Men's Sheds to construct. 
@@ -35,10 +35,10 @@ While designing our radio we were inspired and influenced by a number of other p
 We loved, and incorporated, the personalisation options of <a href="https://homelifetech.com.au/products/relish-radio">The Relish Radio</a>, the simplicity of the <a href="https://designability.org.uk/projects/products/simple-music-player/">Simple Music Player</a>, and the DIY nature of the <a href="https://hackaday.io/project/26096-dementia-friendly-music-player">Dementia-Friendly Music Player</a>.
 
 ## Notice
-Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #legal TODO
+Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #TODO
 
-### Warranty/Licence
-TODO
+## Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.
 
 ## Parts list
 
@@ -88,6 +88,11 @@ However, since dementia is a progressive illness and over time someone with deme
 We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing the switches could be removed and this wood piece secured on top of the etching and switch holes.
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
 This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
+
+<figure markdown>
+![](assets/without_switches.jpg){width="400"}
+<figcaption>Covering the switches with a wood piece</figcaption>
+</figure>
 
 As some people living with dementia have reduced dexterity in their hands, we chose that can be individually pressed with a knuckle.
 

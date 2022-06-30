@@ -8,7 +8,7 @@ Designed for use by people with dementia, and for construction by men's sheds an
 
 `See the full build instructions here. <https://uq-flor-pro.github.io/florence-player>`_
 
-.. image:: ./howto/mkdocs/docs/assets/final.jpg
+.. image:: ./howto/mkdocs/docs/assets/in_situ.jpg
    :width: 400
    :alt: Picture of the player
 
