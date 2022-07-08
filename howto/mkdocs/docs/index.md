@@ -18,6 +18,7 @@ The player would have a backend accessible by web browser over the local network
 This would allow people living with dementia and their families and care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
 We wanted the potential to connect to a smart-home system later and to have the option to collect data about how and when the player was being used.
+We also wanted to have RFID reading capacity and another peripheral that would have consist of album covers and associated switches to play that album.
 We would prioritise free and open source software and hardware, and release our modifications under such a licence.
 
 ## Rationale
@@ -122,7 +123,7 @@ We chose Mopidy Pummeluff as it had a number of features:
 - uses threading and could be modified to incorporate our changes
 - was licensed under an appropriate licence
 
-One change we wanted to make was to use a 'clicky' on/off potentiometer instead of a rotary encoder for the volume as the on/off switch is a familiar affordance and a potentiometer provides accurate visual and tactile feedback (though the mark on the knob we have used is quite small and potentially hard to read).
+One change we wanted to make was to use a 'clicky' on/off potentiometer instead of a rotary encoder for the volume as the on/off switch is a familiar affordance and a potentiometer provides accurate visual and tactile feedback (though the mark on the knob we have used is unfortunately quite small and potentially hard to read).
 To make this change meant using an Analog to Digital Converter (ADC) to connect to the potentiometer as the GPIO pins on the Pi are digital.
 The ADC we chose connects via Serial Peripheral Interface (SPI), as does the RFID reader.[^9]
 We tried to get the RFID and ADC both working simultaneously with one using hardware SPI and the other software SPI. Unfortunately we couldn't and decided to focus on getting the base player working and try again later to incorporate RFID reading.
@@ -135,7 +136,7 @@ Rather than create a new registry format for stations, we decided it would be be
 
 ##### Web interface
 
-To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases, where aliases are convenient names for naming stations. 
+To change the web interface we added a new form for setting stations. This communicates with a modified `web.py` backend to handle setting stations and aliases. Aliases are convenient names for naming stations. 
 <figure markdown>
 ![](./assets/add_station_view.png){ width="450"}
     <figcaption>The form for assigning a tracklist to station 1</figcaption>
@@ -250,7 +251,7 @@ The other end gets connected to the component.
 <figcaption>One switch down, six to go</figcaption>
 </figure>
 
-We add heatshrink to each to help prevent against short-circuits occuring. First, cut the heatshrink, slide it over, then solder, and finally using a lighter or heat gun to shrink the heatshrink. <a href="https://youtu.be/6rmErwU5E-k?t=439">This video</a> demonstrates the whole process.
+We add heatshrink to each to help prevent short-circuits occuring. First, cut the heatshrink, slide it over, then solder, and finally using a lighter or heat gun to shrink the heatshrink. <a href="https://youtu.be/6rmErwU5E-k?t=439">This video</a> demonstrates the whole process.
 
 ### Setup RaspberryPi OS and install the player
 
@@ -518,6 +519,9 @@ We can also assign internet radio stations to the station switches.
 
 ## Future Work
 One downside with the Raspberry Pi is that it can take upwards of 30 seconds, and sometimes a minute, for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
+
+We would like the ability to play playlists using RFID tags.
+We also want to create a peripheral that consists of a grid of changeable album covers and an associated switch to play that album for those users that have trouble reading.
 
 ## Mistakes
 Here's a few of the mistakes we made in building the player.

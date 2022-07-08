@@ -3,6 +3,8 @@ Florence Player
 ===============
 by the `Florence Project <https://itee.uq.edu.au/florence>`_.
 
+*Project forked from* `Mopidy Pummeluff <https://github.com/confirm/mopidy-pummeluff>`_.
+
 A simple to operate player as part of the Florence Project.
 Designed for use by people with dementia, and for construction by men's sheds and families.
 
