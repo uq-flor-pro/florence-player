@@ -12,10 +12,11 @@ from time import time, sleep
 
 from os import system
 
-import RPi.GPIO as GPIO
+from RPi import GPIO
 
-from mopidy_florence_player.actions import Play, Pause, NextTrack, Shutdown
-from mopidy_florence_player.stations.stations import PlayStationOne, PlayStationTwo, PlayStationThree,  PlayStationFour
+from mopidy_florence_player.actions import Play, Pause, NextTrack
+from mopidy_florence_player.stations.stations import PlayStationOne, \
+    PlayStationTwo, PlayStationThree,  PlayStationFour
 from mopidy_florence_player.sound import play_sound
 
 LOGGER = getLogger(__name__)
@@ -71,7 +72,9 @@ class GPIOHandler(Thread):
                     GPIO.cleanup(pin)
                     LOGGER.info('Setting up pin %s as button pin', pin)
                     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-                    GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin: self.button_push(pin))  # pylint: disable=unnecessary-lambda
+                    GPIO.add_event_detect(pin, GPIO.RISING, callback=lambda pin:
+                                          self.button_push(pin)) \
+                                          # pylint: disable=unnecessary-lambda
                     LOGGER.info('Setup pin %s as button pin', pin)
                     failure_flag = 0
                 except Exception as ex:
@@ -97,7 +100,7 @@ class GPIOHandler(Thread):
         if (GPIO.input(pin) == GPIO.LOW) and (now - before > 0.25):
             try:
                 index = self.espeak_pins.index(pin)
-                if index == 0 and GPIO.input(self.espeak_pins[1]) == GPIO.LOW or index == 1 and\
+                if not index and GPIO.input(self.espeak_pins[1]) == GPIO.LOW or index == 1 and\
                         GPIO.input(self.espeak_pins[0]) == GPIO.LOW:
                     LOGGER.info('Both espeak switches pressed. Reading IP address.')
                     system("hostname -I | espeak")

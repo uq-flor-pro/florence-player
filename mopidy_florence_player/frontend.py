@@ -14,7 +14,7 @@ import pykka
 from mopidy import core as mopidy_core
 import RPi.GPIO as GPIO
 
-from .threads import GPIOHandler, TagReader, MCPWatcher
+from .threads import GPIOHandler, MCPWatcher #, TagReader
 
 
 LOGGER = getLogger(__name__)
@@ -30,7 +30,7 @@ class FlorencePlayerFrontend(pykka.ThreadingActor, mopidy_core.CoreListener):
         super().__init__()
         self.core         = core
         # set volume at 85%
-        subprocess.run(['amixer', 'set', 'PCM', '85%'])
+        subprocess.run(['amixer', 'set', 'PCM', '85%'], check=True)
         self.stop_event   = Event()
         self.gpio_handler = GPIOHandler(core=core, stop_event=self.stop_event)
         # turn off tag reader

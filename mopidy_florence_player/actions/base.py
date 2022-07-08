@@ -104,7 +104,8 @@ class Action:
         '''
         parameterised = len(getfullargspec(self.execute).args) > 2
 
-        if parameterised and not self.parameter and 'artist' not in getfullargspec(self.execute).args:
+        if parameterised and not self.parameter and 'artist' not in \
+           getfullargspec(self.execute).args:
             raise ValueError('Parameter required for this tag')
 
         if not parameterised and self.parameter:

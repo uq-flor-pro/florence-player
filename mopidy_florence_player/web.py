@@ -145,10 +145,10 @@ class RegisterStationHandler(RequestHandler):  # pylint: disable=abstract-method
                 alias = self.get_argument(station + "_alias", "")
                 tracklist = self.get_argument(station + "_tracklist", "")
 
-                if alias == "" and tracklist == "":
+                if not alias and not tracklist:
                     data[station] = "skip"
                     continue
-                elif alias == "" or tracklist == "":
+                if not alias or not tracklist:
                     data[station] = "error"
                     continue
 
@@ -169,8 +169,8 @@ class RegisterStationHandler(RequestHandler):  # pylint: disable=abstract-method
             # data.update(stations.as_dict())
 
         except ValueError as ex:
-            LOGGER.debug('Error adding station:', station + ". Check there was an alias and tracklist set for each\
-             updated station.")
+            LOGGER.debug('Error adding station:'  + station + ". Check there was
+            an alias and tracklist set for each updated station.")
             self.set_status(400)
             data["success"] = False
             data["message"] = str(ex)
@@ -239,31 +239,35 @@ class ActionClassesHandler(RequestHandler):  # pylint: disable=abstract-method
 
 class UploadFile(RequestHandler):
     '''
-    Handles a file being POSTed. If it's a known audio file store it away, if it's a zip unzip and store it away. Else
-    skip.
+    Handles a file being POSTed. If it's a known audio file store it away, if
+    it's a zip unzip and store it away. Else skip.
 
     Stores into /home/pi/music/webuploads/.
     '''
     def post(self):
-        STORE_DIR = '/home/pi/music/webuploads/'
+        '''
+        Handle POST request.
+        '''
+        store_dir = '/home/pi/music/webuploads/'
 
         file1 = self.request.files['file1'][0]
-        LOGGER.info(f'Got request {self.request}')
+        LOGGER.info('Got request %s' % self.request)
         original_fname = file1['filename']
         ext = os.path.splitext(original_fname)[1]
 
-        LOGGER.info(f'Adding file {original_fname}')
+        LOGGER.info(f'Adding file %s' % original_fname)
 
-        if ext == ".mp3" or ext == ".wav" or ext == ".flac":
-            output_file = open(STORE_DIR + original_fname, 'wb')
-            output_file.write(file1['body'])
+        if ext in ('.mp3', '.wav', '.flac'):
+            with open(store_dir + original_fname, 'wb') as output_file:
+                output_file.write(file1['body'])
             LOGGER.info('Successfully added new music')
 
         elif ext == ".zip":
-            output_file = open("/tmp/" + original_fname, 'wb')
-            output_file.write(file1['body'])
+            with open("/tmp/" + original_fname, 'wb') as output_file:
+                output_file.write(file1['body'])
 
-            subprocess.run(["unzip", "-d", STORE_DIR, "/tmp/" + original_fname, ])
+            subprocess.run(["unzip", "-d", store_dir, "/tmp/" +
+                            original_fname, ], check=True)
             LOGGER.info('Successfully added new music')
 
         else:

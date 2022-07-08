@@ -54,7 +54,8 @@ class RegistryDict(dict):
         return item['uid'], cls.init_action(**item)
 
     @classmethod
-    def init_action(cls, action_class, uid, alias=None, parameter=None, is_rfid=True):
+    def init_action(cls, action_class, uid, alias=None, parameter=None,
+                    is_rfid=True):
         '''
         Initialise a new action instance.
 
@@ -62,7 +63,8 @@ class RegistryDict(dict):
         :param str uid: The RFID UID
         :param str alias: The alias
         :param str parameter: The parameter
-
+        :param bool is_rfid: Is the entry for a RFID tag (true) or a station
+        (false)?
         :return: The action instance
         :rtype: actions.Action
         '''
@@ -99,7 +101,8 @@ class RegistryDict(dict):
         with open(config, 'w') as f:
             json.dump([action.as_dict() for action in self.values()], f, indent=4)
 
-    def register(self, action_class, uid, alias=None, parameter=None, is_rfid=True):
+    def register(self, action_class, uid, alias=None, parameter=None,
+                 is_rfid=True):
         '''
         Register a new tag in the registry.
 
@@ -107,7 +110,8 @@ class RegistryDict(dict):
         :param str uid: The UID
         :param str alias: The alias
         :param str parameter: The parameter (optional)
-        :param bool is_rfid: is the tag being registered a rfid tag? else a station.
+        :param bool is_rfid: is the tag being registered a rfid tag? else a
+        station.
 
         :return: The action
         :rtype: actions.Action

@@ -13,10 +13,7 @@ __all__ = (
 from logging import getLogger
 
 from mopidy_florence_player.actions.base import Action
-
 from mopidy_florence_player.registry import REGISTRY
-
-from mopidy_florence_player.sound import play_sound
 
 LOGGER = getLogger(__name__)
 
@@ -37,7 +34,8 @@ class PlayStation(Action):
             action = REGISTRY[str(station)]
             action(core)
         except Exception as ex:
-            LOGGER.info("Can't fetch parameter. Maybe there's no tracklist assigned to this station yet. Exception: %s", str(ex))
+            LOGGER.info("Can't fetch parameter. Maybe there's no tracklist" +
+            "assigned to this station yet. Exception: %s" % str(ex))
             return
 
 class PlayStationOne(PlayStation):

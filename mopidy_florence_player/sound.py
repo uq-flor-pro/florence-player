@@ -6,7 +6,7 @@ __all__ = (
     'play_sound',
 )
 
-from os import path, system
+from os import path
 import subprocess
 
 
@@ -18,7 +18,7 @@ def play_sound(sound):
     '''
     file_path = path.join(path.dirname(__file__), 'sounds', sound)
     # set volume 50%
-    subprocess.run(['amixer', 'set', 'PCM', '50%'])
-    subprocess.run(['aplay', file_path])
+    subprocess.run(['amixer', 'set', 'PCM', '50%'], check=True)
+    subprocess.run(['aplay', file_path], check=True)
     # set volume 85%
-    subprocess.run(['amixer', 'set', 'PCM', '85%'])
+    subprocess.run(['amixer', 'set', 'PCM', '85%'], check=True)
