@@ -12,7 +12,7 @@
 html,
 body
 {
-    margin : 0;
+    margin : 1%;
     padding: 0;
 }
 
@@ -47,7 +47,7 @@ main
 
 header
 {
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 0px 20px;
 }
 
 main > div
@@ -212,13 +212,10 @@ div.tag span.parameter
 }
 
 .success {
-    border: 2px solid green;
-    padding: 10px;
+    border: 2px solid green !important;
 }
 
 .error {
-    border: 2px solid red;
-    padding: 10px;
 }
 
 .submit {
@@ -231,6 +228,7 @@ div.tag span.parameter
 }
 
 #draganddrop {
+    margin-bottom: 2%;
 }
 
 main {
@@ -252,11 +250,26 @@ main {
 
 /* Drop zone */
 #drop_zone {
-    border: 5px solid blue;
+    border: 5px dotted blue;
+    border-radius: 25px;
     width:  200px;
     height: 100px;
+    width: 85%;
+    height: 20vh;
+    padding: 2%;
+    margin: auto;
+    margin-bottom: 3%;
 }
 
 .equal {
-    flex: 1 0 33%;
+    flex: 1 0 40%;
+    margin: 1%;
+}
+
+#inputsend {
+    margin-top: 3%;
+}
+
+.card {
+    padding: 0px !important;
 }

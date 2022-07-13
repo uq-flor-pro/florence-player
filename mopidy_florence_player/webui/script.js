@@ -50,19 +50,23 @@ class API {
                     spanElement.innerHTML = value
                     switch (tag['uid']) {
                         case 'station_1':
-                            document.querySelector("#station_1_tracklist_placeholder").innerHTML = tag["parameter"];
+                            document.querySelector("#station_1_tracklist_placeholder").innerHTML = "<a href='" +
+                                tag["parameter"] + "'>" + tag["parameter"] + "</a>"
                             document.querySelector("#station_1_alias_placeholder").innerHTML = tag["alias"];
                             break;
                         case 'station_2':
-                            document.querySelector("#station_2_tracklist_placeholder").innerHTML = tag["parameter"];
+                            document.querySelector("#station_2_tracklist_placeholder").innerHTML = "<a href='" +
+                                tag["parameter"] + "'>" + tag["parameter"] + "</a>"
                             document.querySelector("#station_2_alias_placeholder").innerHTML = tag["alias"];
                             break;
                         case 'station_3':
-                            document.querySelector("#station_3_tracklist_placeholder").innerHTML = tag["parameter"];
+                            document.querySelector("#station_3_tracklist_placeholder").innerHTML = "<a href='" +
+                                tag["parameter"] + "'>" + tag["parameter"] + "</a>"
                             document.querySelector("#station_3_alias_placeholder").innerHTML = tag["alias"];
                             break;
                         case 'station_4':
-                            document.querySelector("#station_4_tracklist_placeholder").innerHTML = tag["parameter"];
+                            document.querySelector("#station_4_tracklist_placeholder").innerHTML = "<a href='" +
+                                tag["parameter"] + "'>" + tag["parameter"] + "</a>"
                             document.querySelector("#station_4_alias_placeholder").innerHTML = tag["alias"];
                             break;
                         default:
@@ -197,15 +201,17 @@ class API {
 function handle_station_response(s1, s2, s3, s4) {
     var station_1_class, station_2_class, station_3_class, station_4_class
 
-    s1 === true ? station_1_class = "success" : station_1_class = s1
-    s2 === true ? station_2_class = "success" : station_2_class = s2
-    s3 === true ? station_3_class = "success" : station_3_class = s3
-    s4 === true ? station_4_class = "success" : station_4_class = s4
+    s1 === true ? station_1_class = "card success" : station_1_class = "card " + s1
+    s2 === true ? station_2_class = "card success" : station_2_class = "card " + s2
+    s3 === true ? station_3_class = "card success" : station_3_class = "card " + s3
+    s4 === true ? station_4_class = "card success" : station_4_class = "card " + s4
 
     document.querySelector("#station_1").className = station_1_class
     document.querySelector("#station_2").className = station_2_class
     document.querySelector("#station_3").className = station_3_class
     document.querySelector("#station_4").className = station_4_class
+
+    document.getElementById('register-stations-form').reset();
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop

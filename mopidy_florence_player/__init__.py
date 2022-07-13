@@ -8,8 +8,8 @@ import mopidy
 
 from logging import getLogger
 from .frontend import FlorencePlayerFrontend
-from .web import LatestHandler, RegistryHandler, RegisterHandler, UnregisterHandler, \
-    ActionClassesHandler, RegisterStationHandler, UploadFile
+from .web import LatestHandler, RegistryHandler, RegisterHandler,\
+    UnregisterHandler, ActionClassesHandler, RegisterStationHandler, UploadFile
 
 
 LOGGER = getLogger(__name__)

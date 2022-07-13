@@ -169,8 +169,8 @@ class RegisterStationHandler(RequestHandler):  # pylint: disable=abstract-method
             # data.update(stations.as_dict())
 
         except ValueError as ex:
-            LOGGER.debug('Error adding station:'  + station + ". Check there was
-            an alias and tracklist set for each updated station.")
+            LOGGER.debug('Error adding station:'  + station + ". Check there was"
+                + "an alias and tracklist set for each updated station.")
             self.set_status(400)
             data["success"] = False
             data["message"] = str(ex)

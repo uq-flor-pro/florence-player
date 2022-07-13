@@ -29,19 +29,22 @@ class PlayStation(Action):
         Replace tracklist and play.
 
         :param mopidy.core.Core core: The mopidy core instance
+        :param station: The station to play
         '''
         try:
             action = REGISTRY[str(station)]
             action(core)
         except Exception as ex:
-            LOGGER.info("Can't fetch parameter. Maybe there's no tracklist" +
-            "assigned to this station yet. Exception: %s" % str(ex))
+            LOGGER.info("Can't fetch parameter. Maybe there's no tracklist"
+                        + "assigned to this station yet. Exception: %s" % str(ex))
             return
+
 
 class PlayStationOne(PlayStation):
     '''
     Play station number 1
     '''
+
     @classmethod
     def execute(cls, core):
         # each station is stored as a tag in the db
@@ -49,30 +52,36 @@ class PlayStationOne(PlayStation):
 
         super().execute(core, station)
 
+
 class PlayStationTwo(PlayStation):
     '''
     Play station number 2
     '''
+
     @classmethod
     def execute(cls, core):
         station = 'station_2'
 
         super().execute(core, station)
 
+
 class PlayStationThree(PlayStation):
     '''
     Play station number 3
     '''
+
     @classmethod
     def execute(cls, core):
         station = 'station_3'
 
         super().execute(core, station)
 
+
 class PlayStationFour(PlayStation):
     '''
     Play station number 4
     '''
+
     @classmethod
     def execute(cls, core):
         station = 'station_4'
