@@ -18,7 +18,7 @@ The player would have a backend accessible by web browser over the local network
 This would allow people living with dementia and their families and care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
 We wanted the potential to connect to a smart-home system later and to have the option to collect data about how and when the player was being used.
-We also wanted to have RFID reading capacity and another peripheral that would have consist of album covers and associated switches to play that album.
+We also wanted to have RFID reading capacity and another peripheral that would have consist of album covers and associated switches to play each album.
 We would prioritise free and open source software and hardware, and release our modifications under such a licence.
 
 ## Rationale
@@ -28,7 +28,7 @@ We would prioritise free and open source software and hardware, and release our 
 However, beyond these measurable aspects, [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
 >People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
 
-In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional player, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a pre-programmed station and affords the choice of three others that are programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
+In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional radio, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a pre-programmed station and affords the choice of three others that are programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
 
 ## Inspiration
 
@@ -208,7 +208,7 @@ In this step we wire up the speakers and connect them to the terminal blocks of 
 2. Strip all the ends of the wires
 3. Twist and tin each end
 4. Solder one end to the speakers as in the video
-5. Attach other end to speaker jumpers
+5. Attach other end to terminal blocks of the Speaker Bonnet
 
 The first half of [this video](assets/https://www.youtube.com/watch?v=8UXloSxQlEA) shows the method we used. We can ignore the second half of the video as we are not attaching the speakers to a breadboard but to the Speaker Bonnet's terminal blocks.
     
@@ -284,12 +284,7 @@ Give Mopidy access to SPI and GPIO groups
 ``` bash
 sudo usermod -a -G spi,gpio mopidy
 ```
-<!-- handled by /boot/config.txt
-Allow Mopidy to shutdown the Pi without requiring a password
-``` bash
-echo "mopidy ALL = NOPASSWD: /sbin/shutdown" > /etc/sudoers.d/mopidy
-```
--->
+
 Edit the Mopidy configuration and set Spotify credentials, local music location, etc. This will depend on your setup but an example configuration file is provided in the `other` directory.
 
 ``` bash
@@ -342,9 +337,9 @@ sudo reboot
 
 The web-server on the player is accessible via port 6680. 
 Navigating to [http://raspberrypi.local:6680](http://raspberrypi.local:6680) with a browser on the same network will hopefully show the Mopidy page with links to Iris, Florence and Local.
-Unfortunately acessing `raspberrypi.local` <a href="https://raspberrypi.stackexchange.com/questions/91154/raspberry-pis-local-hostname-doesnt-work-on-android-phones">does not work</a> on Android phones in which case we need the IP address to access this configuration file.
+Unfortunately acessing `raspberrypi.local` <a href="https://raspberrypi.stackexchange.com/questions/91154/raspberry-pis-local-hostname-doesnt-work-on-android-phones">does not work on Android phones</a> in which case we need the IP address to access this configuration file.
 To have the player read this address press play and pause at the same time.
-Then access the configuration page at that IP address: [http://192.168.xxx.xxx:6680](http://192.168.x.xxx:6680).
+Then access the configuration page at that IP address: [http://192.168.xxx.xxx:6680](http://192.168.xxx.xxx:6680).
 <figure markdown>
 ![](assets/mopidy_page.png)
 <figcaption>The Mopidy homepage</figurecaption>
@@ -397,7 +392,6 @@ Once we've confirmed everything works with a breadboard, it's time to construct 
 ![](assets/./stripboard_reverse.jpg "Image not found: ./stripboard_reverse.jpg"){ width="450"}
 <figcaption>Rear view (mirrored left-right)</figcaption>
 </figure>
-
 
 - Check the connections[^3]
 
@@ -467,16 +461,6 @@ Then glue the rare-earth magnets to the corners of the top piece, setting them i
 </figure>
 Leave to set.
 
-<!--
-Future work 
-TODO
-
-- a more familiar form would be good
-- the volume knob is quite unresponsive
-- faster boot
-- smarthome integration via mqtt or other
-- it would be nice to have an easy way to update the player when convenient without having to ssh in
--->
 
 ### Configure the switches
 Watch the logs with:
@@ -511,7 +495,7 @@ Here we can upload mp3, wav, or flac format songs, or alternatively a zip file o
 From these audio we can make a tracklist and assign it to a station switch.
 
 We can also assign internet radio stations to the station switches.
-[See here](https://help.abc.net.au/hc/en-us/articles/4402927208079-Where-can-I-find-direct-stream-URLs-for-ABC-Radio-stations-) for a list of ABC streams.
+[See here](https://help.abc.net.au/hc/en-us/articles/4402927208079-Where-can-I-find-direct-stream-URLs-for-ABC-Radio-stations-) for a list of ABC streaming links.
 
 #### Creating a playlist
 [Playlist for life](https://www.playlistforlife.org.uk/) has some tips and potential pitfalls in creating playlists for/with people living with dementia.
@@ -523,6 +507,16 @@ One downside with the Raspberry Pi is that it can take upwards of 30 seconds, an
 We would like the ability to play playlists using RFID tags.
 We also want to create a peripheral that consists of a grid of changeable album covers and an associated switch to play that album for those users that have trouble reading.
 
+<!--
+Future work 
+TODO
+
+- a more familiar form would be good
+- the volume knob is quite unresponsive
+- faster boot
+- smarthome integration via mqtt or other
+- it would be nice to have an easy way to update the player when convenient without having to ssh in
+-->
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
 
@@ -540,7 +534,7 @@ Changing this to a free pin restored audio.
 [The pins](https://pinout.xyz/) on a Raspberry Pi can be referenced numerically in multiple ways.
 This is known as pinmode.
 To use the RFID reading capabilities of Pummeluff at the same time, it is necessary to change the pinmode to Board from BCM in the gpio_handler and mcp_watcher files to avoid errors caused by conflicting modes.[^16]
-Since we aren't using this the RFID reader at the moment, we have commented out the sections where this code gets called and used BCM mode.
+Since we aren't using this the RFID reader at the moment, we have commented out the sections where this ```tag_reader``` gets called and used BCM mode.
 
 ## Notes
 ### Speaker Bonnet
@@ -552,8 +546,7 @@ Adafruit's debugging suggestions generally involve reflashing the OS, reinstalli
 
 When connected using wifi and performing updates or transferring files using ```scp```, we often found the network connection would drop out for a few minutes.
 [This link](https://forums.raspberrypi.com/viewtopic.php?p=1670096&hilit=transfer+disconnects#p1670096) seems to refer to the issue.
-Throttling the connection using wondershaper didn't seem to help.
-This only happened over wifi.
+Throttling the connection using wondershaper didn't seem to help and this only happened over wifi.
 We ended up using a USB wireless adapter instead of the inbuild wifi adapter.
 See [this Github issue](https://github.com/uq-flor-pro/florence-player/issues/1) on the Florence Player repository for more information.
 
@@ -561,8 +554,6 @@ See [this Github issue](https://github.com/uq-flor-pro/florence-player/issues/1)
 We tried to increase the `max_body_size` when starting the Tornado HTTPServer in Mopidy.
 Unfortunately sending a 300Mb zip crashed Mopidy as it used too much RAM.
 As a result we leave the 100Mb size restriction in place.
-
-
 
 [^1]: In building our prototype we had to do this a few times and still didn't get it perfect. However we think it's worth doing as it makes the final version much cleaner and easier to work with.
 
