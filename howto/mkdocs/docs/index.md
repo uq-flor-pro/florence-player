@@ -18,7 +18,7 @@ The player would have a backend accessible by web browser over the local network
 This would allow people living with dementia and their families and care partners to easily individualise the music and content.
 We also wanted the possibility to customise the form of the player in a familiar or recognisable way which could differ from person to person.
 We wanted the potential to connect to a smart-home system later and to have the option to collect data about how and when the player was being used.
-We also wanted to have RFID reading capacity and another peripheral that would have consist of album covers and associated switches to play each album.
+We also wanted two peripherals: one to play albums using RFID tags, and the other was to be a grid of albums with an associated switch to play each album.
 We would prioritise free and open source software and hardware, and release our modifications under such a licence.
 
 ## Rationale
@@ -28,7 +28,7 @@ We would prioritise free and open source software and hardware, and release our 
 However, beyond these measurable aspects, [Dowson et al](https://doi.org/10.1016/j.maturitas.2019.06.001) write:
 >People with dementia and their carers suggest that the key characteristics of music for them are that it facilitates social interaction, helps to maintain relationships, reinforces their sense of identity, remains meaningful and accessible through all stages of dementia, and that overall it supports the wellbeing of both people with dementia and those involved in their care.
 
-In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. While our player does not look like a traditional radio, the large media control icons and speakers might communicate its function. One of the ways this device may assist most is through the choice of music. When turned on, it plays a pre-programmed station and affords the choice of three others that are programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
+In a [2006 paper](https://www.cambridge.org/core/journals/ageing-and-society/article/music-and-the-wellbeing-of-people-with-dementia/39487B281F93E554DF8ACC6DD3842579) Sixsmith and Gibson determine that the main difficulty encountering music include recognising the device, remembering the enjoyment of music, choice of music and using the device. One of the ways the Florence Player may assist most is through the choice of music. When turned on, it plays a pre-programmed station and affords the choice of three others that are programmable by a web UI. This means the choice of music can be individualised by family and caregivers. As [this paper](https://www.tandfonline.com/doi/full/10.1080/2331186X.2017.1362888) by Johnston et al discusses, this may itself have beneficial impacts like the formation of positive new memories.
 
 ## Inspiration
 
@@ -36,7 +36,7 @@ While designing our radio we were inspired and influenced by a number of other p
 We loved, and incorporated, the personalisation options of <a href="https://homelifetech.com.au/products/relish-radio">The Relish Radio</a>, the simplicity of the <a href="https://designability.org.uk/projects/products/simple-music-player/">Simple Music Player</a>, and the DIY nature of the <a href="https://hackaday.io/project/26096-dementia-friendly-music-player">Dementia-Friendly Music Player</a>.
 
 ## Notice
-Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed. #TODO
+Links to suppliers are used for reference and this project receives no financial or other benefit from any retailer listed.
 
 ## Warranty
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN  THE SOFTWARE.
@@ -79,14 +79,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ### Hardware
 #### Case
 
-Our first version was a 3D printed case with a single affordance: a clicky on/off and volume switch.
+Our first version was a 3D printed case with a single affordance: a clicky on/off switch and volume knob.
 <figure markdown>
 ![](assets/version_1.jpg)
 <figcaption>Our first version</figcaption>
 </figure>
 In this version we wanted to include more options, especially the ability to skip tracks.
 However, since dementia is a progressive illness and over time someone with dementia might find it too difficult to use certain features that they could previously, we also wanted the case to be able to simplify over time.
-We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing the switches could be removed and this wood piece secured on top of the etching and switch holes.
+We cut and etched an extra piece of wood so that if the play/pause/skip buttons became confusing the switches could be removed and this wood piece secured on top of the holes where the switches were.
 Alternatively, if the stations were too complex a larger piece could be laser cut to cover this section.
 This means that the overall design remains mostly the same but that any confusing elements can be simplified over time.
 
@@ -120,7 +120,7 @@ We chose Mopidy Pummeluff as it had a number of features:
 
 - the ability to read UIDs from RFID tags
 - a web interface to add RFID tag UIDs to a registry
-- uses threading and could be modified to incorporate our changes
+- could be modified to incorporate our changes
 - was licensed under an appropriate licence
 
 One change we wanted to make was to use a 'clicky' on/off potentiometer instead of a rotary encoder for the volume as the on/off switch is a familiar affordance and a potentiometer provides accurate visual and tactile feedback (though the mark on the knob we have used is unfortunately quite small and potentially hard to read).
@@ -500,6 +500,15 @@ We can also assign internet radio stations to the station switches.
 #### Creating a playlist
 [Playlist for life](https://www.playlistforlife.org.uk/) has some tips and potential pitfalls in creating playlists for/with people living with dementia.
 [BBC Music Memories](https://musicmemories.bbcrewind.co.uk/home) has some ideas for songs based on type (popular, theme-song, classical, UK Nations, international, social), genre, and era.
+
+#### Label the stations
+
+For this step either glue on a small piece of whiteboard, or Blu-Tak an index card cut to size.
+
+<figure markdown>
+![](assets/close_up.jpg){width="400"}
+<figcaption>Labelling the stations</figcaption>
+</figure>
 
 ## Future Work
 One downside with the Raspberry Pi is that it can take upwards of 30 seconds, and sometimes a minute, for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
