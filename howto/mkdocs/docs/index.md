@@ -503,7 +503,7 @@ We can also assign internet radio stations to the station switches.
 
 #### Label the stations
 
-For this step either glue on a small piece of whiteboard, or Blu-Tak an index card cut to size.
+For this step either glue on a [small piece of whiteboard](https://core-electronics.com.au/flexible-magnetic-dry-erase-whiteboard-21cm-x-15cm.html), or Blu-Tak an index card cut to size.
 
 <figure markdown>
 ![](assets/close_up.jpg){width="400"}
@@ -513,19 +513,8 @@ For this step either glue on a small piece of whiteboard, or Blu-Tak an index ca
 ## Future Work
 One downside with the Raspberry Pi is that it can take upwards of 30 seconds, and sometimes a minute, for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.
 
-We would like the ability to play playlists using RFID tags.
-We also want to create a peripheral that consists of a grid of changeable album covers and an associated switch to play that album for those users that have trouble reading.
+We didn't get to include RFID capabilities, nor build the peripheral with a grid of albums each with a dedicated switch. We might add these later.
 
-<!--
-Future work 
-TODO
-
-- a more familiar form would be good
-- the volume knob is quite unresponsive
-- faster boot
-- smarthome integration via mqtt or other
-- it would be nice to have an easy way to update the player when convenient without having to ssh in
--->
 ## Mistakes
 Here's a few of the mistakes we made in building the player.
 
