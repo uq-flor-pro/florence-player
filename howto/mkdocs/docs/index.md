@@ -1,7 +1,7 @@
 ---
 title: Florence Player Build Instructions
 author: Florence Project
-description: A simple to operate music player for people living with dementia designed to be build by families or Men's sheds
+description: A simple to operate music player for people living with dementia designed to be built by families or Men's sheds
 hide:
   - navigation
 ---
