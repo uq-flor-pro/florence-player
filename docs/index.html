@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
@@ -1540,25 +1540,14 @@ From these audio we can make a tracklist and assign it to a station switch.</p>
 <p><a href="https://www.playlistforlife.org.uk/">Playlist for life</a> has some tips and potential pitfalls in creating playlists for/with people living with dementia.
 <a href="https://musicmemories.bbcrewind.co.uk/home">BBC Music Memories</a> has some ideas for songs based on type (popular, theme-song, classical, UK Nations, international, social), genre, and era.</p>
 <h4 id="label-the-stations">Label the stations</h4>
-<p>For this step either glue on a small piece of whiteboard, or Blu-Tak an index card cut to size.</p>
+<p>For this step either glue on a <a href="https://core-electronics.com.au/flexible-magnetic-dry-erase-whiteboard-21cm-x-15cm.html">small piece of whiteboard</a>, or Blu-Tak an index card cut to size.</p>
 <figure>
 <p><img alt="" src="assets/close_up.jpg" width="400" /></p>
 <figcaption>Labelling the stations</figcaption>
 </figure>
 <h2 id="future-work">Future Work</h2>
 <p>One downside with the Raspberry Pi is that it can take upwards of 30 seconds, and sometimes a minute, for the player to start playing. One idea we would like to try is to install a noise generating circuit that started playing when the radio was turned on and was turned off by the player when it had booted completely.</p>
-<p>We would like the ability to play playlists using RFID tags.
-We also want to create a peripheral that consists of a grid of changeable album covers and an associated switch to play that album for those users that have trouble reading.</p>
-<!--
-Future work 
-TODO
-
-- a more familiar form would be good
-- the volume knob is quite unresponsive
-- faster boot
-- smarthome integration via mqtt or other
-- it would be nice to have an easy way to update the player when convenient without having to ssh in
--->
+<p>We didn't get to include RFID capabilities, nor build the peripheral with a grid of albums each with a dedicated switch. We might add these later.</p>
 <h2 id="mistakes">Mistakes</h2>
 <p>Here's a few of the mistakes we made in building the player.</p>
 <h3 id="the-corners-of-the-player-are-sharp">The corners of the player are sharp</h3>
